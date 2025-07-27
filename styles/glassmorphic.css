@@ -1,0 +1,595 @@
+/* Chrome New Tab Layout Styles */
+
+/* Body styling to match Chrome's default new tab */
+.chrome-newtab-body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #202124;
+  color: #e8eaed;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Light theme */
+.chrome-newtab-body.light {
+  background: #ffffff;
+  color: #202124;
+}
+
+/* Chrome header area */
+.chrome-header {
+  height: 64px;
+  width: 100%;
+}
+
+/* Main content area that mimics Chrome's layout */
+.chrome-main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 109px;
+  min-height: calc(100vh - 200px);
+}
+
+/* Google logo area */
+.google-logo-area {
+  margin-bottom: 33px;
+  height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Add Google logo styling */
+.google-logo-area::before {
+  content: 'Google';
+  font-size: 90px;
+  font-weight: 400;
+  color: #e8eaed;
+  font-family: arial, sans-serif;
+  letter-spacing: -5px;
+}
+
+.light .google-logo-area::before {
+  color: #4285f4;
+}
+
+/* Search bar area */
+.search-bar-area {
+  margin-bottom: 30px;
+  width: 100%;
+  max-width: 584px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mock search bar */
+.search-bar-area::before {
+  content: '🔍 Search Google or type a URL';
+  width: 100%;
+  height: 44px;
+  border: 1px solid #5f6368;
+  border-radius: 24px;
+  background: #303134;
+  color: #9aa0a6;
+  display: flex;
+  align-items: center;
+  padding-left: 46px;
+  font-size: 16px;
+  cursor: text;
+}
+
+.light .search-bar-area::before {
+  background: #ffffff;
+  border: 1px solid #dfe1e5;
+  color: #9aa0a6;
+}
+
+/* App shortcuts area */
+.app-shortcuts-area {
+  margin-bottom: 50px;
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Mock app shortcuts */
+.app-shortcuts-area::before {
+  content: '📺 YouTube';
+  width: 112px;
+  height: 112px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: #1a73e8;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.app-shortcuts-area::after {
+  content: '💬 Meet';
+  width: 112px;
+  height: 112px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: #34a853;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* Dark Mode Gradient */
+.dark .animated-gradient-bg {
+  background: linear-gradient(-45deg, #0f172a, #1e293b, #374151, #4b5563, #1e3a8a, #7c3aed);
+  background-size: 400% 400%;
+}
+
+.dark .animated-gradient-bg::before {
+  background: linear-gradient(-45deg, 
+    rgba(15, 23, 42, 0.3), 
+    rgba(30, 41, 59, 0.3), 
+    rgba(55, 65, 81, 0.3), 
+    rgba(75, 85, 99, 0.3)
+  );
+}
+
+/* Glassmorphic Card Base */
+.glassmorphic-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 8px 32px 0 rgba(31, 38, 135, 0.37),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glassmorphic-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.1) 0%, 
+    rgba(255, 255, 255, 0.05) 50%, 
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  pointer-events: none;
+}
+
+/* Dark Mode Glassmorphic Card */
+.dark .glassmorphic-card {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 32px 0 rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.dark .glassmorphic-card::before {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.05) 0%, 
+    rgba(255, 255, 255, 0.02) 50%, 
+    rgba(255, 255, 255, 0.01) 100%
+  );
+}
+
+/* Glassmorphic Card Hover Effects */
+.glassmorphic-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 20px 40px 0 rgba(31, 38, 135, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark .glassmorphic-card:hover {
+  box-shadow: 
+    0 20px 40px 0 rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Theme Toggle Button Specific Styling */
+.theme-toggle-btn {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px 0 rgba(31, 38, 135, 0.4);
+}
+
+.dark .theme-toggle-btn {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.4);
+}
+
+.dark .theme-toggle-btn:hover {
+  background: rgba(0, 0, 0, 0.35);
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.6);
+}
+
+/* Loading Overlay Glassmorphic */
+#loading-overlay .glassmorphic-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+}
+
+.dark #loading-overlay .glassmorphic-card {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Subtle Glow Effects */
+.glow-blue {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.glow-purple {
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+}
+
+.glow-green {
+  box-shadow: 0 0 20px rgba(52, 211, 153, 0.3);
+}
+
+/* Responsive Glassmorphic Adjustments */
+@media (max-width: 768px) {
+  .glassmorphic-card {
+    border-radius: 16px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+  }
+}
+
+/* High Performance Mode (Reduced Blur for Lower-End Devices) */
+@media (prefers-reduced-motion: reduce) {
+  .glassmorphic-card {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  
+  .animated-gradient-bg {
+    animation: none;
+    background: linear-gradient(-45deg, #667eea, #764ba2);
+  }
+  
+  .animated-gradient-bg::before {
+    animation: none;
+  }
+}
+
+/* Focus States for Accessibility */
+.glassmorphic-card:focus-within {
+  outline: 2px solid rgba(59, 130, 246, 0.6);
+  outline-offset: 2px;
+}
+
+.theme-toggle-btn:focus {
+  outline: 2px solid rgba(59, 130, 246, 0.6);
+  outline-offset: 2px;
+}/* Ke
+yFlicks Cards Area - Positioned at bottom */
+.keyflicks-bottom-area {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 800px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.keyflicks-cards-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 20px;
+}
+
+/* Individual KeyFlicks Cards */
+.keyflicks-card {
+  background: rgba(32, 33, 36, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  width: 280px;
+  min-height: 120px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  pointer-events: auto;
+  cursor: default;
+}
+
+.light .keyflicks-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  color: #202124;
+}
+
+.keyflicks-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.light .keyflicks-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+/* Card Header */
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 8px;
+}
+
+.card-icon {
+  font-size: 18px;
+}
+
+.card-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #e8eaed;
+  margin: 0;
+}
+
+.light .card-title {
+  color: #202124;
+}
+
+/* Card Content */
+.card-content {
+  color: #e8eaed;
+}
+
+.light .card-content {
+  color: #202124;
+}
+
+/* Shortcut Card Specific Styles */
+.shortcut-keys {
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  font-size: 16px;
+  font-weight: 600;
+  color: #8ab4f8;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.light .shortcut-keys {
+  color: #1a73e8;
+}
+
+.shortcut-description {
+  font-size: 13px;
+  line-height: 1.4;
+  color: #9aa0a6;
+  margin-bottom: 4px;
+}
+
+.light .shortcut-description {
+  color: #5f6368;
+}
+
+/* Quote Card Specific Styles */
+.quote-text {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #e8eaed;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+.light .quote-text {
+  color: #202124;
+}
+
+.quote-author {
+  font-size: 12px;
+  color: #9aa0a6;
+  text-align: right;
+  font-weight: 500;
+}
+
+.light .quote-author {
+  color: #5f6368;
+}
+
+/* Theme Toggle Button - Positioned in top right */
+.theme-toggle-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(32, 33, 36, 0.9);
+  color: #e8eaed;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  z-index: 20;
+}
+
+.light .theme-toggle-btn {
+  background: rgba(255, 255, 255, 0.9);
+  color: #202124;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.light .theme-toggle-btn:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.theme-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Loading Overlay */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.loading-content {
+  background: rgba(32, 33, 36, 0.95);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.light .loading-content {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.loading-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid #8ab4f8;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 12px;
+}
+
+.light .loading-spinner {
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-top: 3px solid #1a73e8;
+}
+
+.loading-text {
+  color: #e8eaed;
+  font-size: 14px;
+}
+
+.light .loading-text {
+  color: #202124;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .keyflicks-cards-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .keyflicks-card {
+    width: 90%;
+    max-width: 320px;
+  }
+  
+  .keyflicks-bottom-area {
+    bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chrome-main-content {
+    padding-top: 80px;
+  }
+  
+  .google-logo-area::before {
+    font-size: 60px;
+  }
+  
+  .app-shortcuts-area {
+    margin-bottom: 30px;
+  }
+  
+  .keyflicks-card {
+    padding: 12px;
+    min-height: 100px;
+  }
+  
+  .card-title {
+    font-size: 13px;
+  }
+  
+  .shortcut-keys {
+    font-size: 14px;
+  }
+}
+
+/* Animation delays for staggered entrance */
+.animate-fade-in-up.animation-delay-200 {
+  animation-delay: 0.2s;
+}
+
+/* Hide elements initially for animation */
+.animate-fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Ensure proper stacking */
+.chrome-header,
+.chrome-main-content {
+  position: relative;
+  z-index: 1;
+}

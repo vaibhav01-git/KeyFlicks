@@ -1,0 +1,1594 @@
+{
+  "shortcuts": [
+    {
+      "id": "copy",
+      "description": "Copy selected text or item",
+      "keys": {
+        "mac": "⌘ + C",
+        "windows": "Ctrl + C",
+        "linux": "Ctrl + C"
+      },
+      "category": "Basic Editing"
+    },
+    {
+      "id": "paste",
+      "description": "Paste copied text or item",
+      "keys": {
+        "mac": "⌘ + V",
+        "windows": "Ctrl + V",
+        "linux": "Ctrl + V"
+      },
+      "category": "Basic Editing"
+    },
+    {
+      "id": "cut",
+      "description": "Cut selected text or item",
+      "keys": {
+        "mac": "⌘ + X",
+        "windows": "Ctrl + X",
+        "linux": "Ctrl + X"
+      },
+      "category": "Basic Editing"
+    },
+    {
+      "id": "undo",
+      "description": "Undo last action",
+      "keys": {
+        "mac": "⌘ + Z",
+        "windows": "Ctrl + Z",
+        "linux": "Ctrl + Z"
+      },
+      "category": "Basic Editing"
+    },
+    {
+      "id": "redo",
+      "description": "Redo last undone action",
+      "keys": {
+        "mac": "⌘ + ⇧ + Z",
+        "windows": "Ctrl + Y",
+        "linux": "Ctrl + Shift + Z"
+      },
+      "category": "Basic Editing"
+    },
+    {
+      "id": "select-all",
+      "description": "Select all content",
+      "keys": {
+        "mac": "⌘ + A",
+        "windows": "Ctrl + A",
+        "linux": "Ctrl + A"
+      },
+      "category": "Basic Editing"
+    },
+    {
+      "id": "new-tab",
+      "description": "Open new tab",
+      "keys": {
+        "mac": "⌘ + T",
+        "windows": "Ctrl + T",
+        "linux": "Ctrl + T"
+      },
+      "category": "Chrome Tabs"
+    },
+    {
+      "id": "close-tab",
+      "description": "Close current tab",
+      "keys": {
+        "mac": "⌘ + W",
+        "windows": "Ctrl + W",
+        "linux": "Ctrl + W"
+      },
+      "category": "Chrome Tabs"
+    },
+    {
+      "id": "reopen-tab",
+      "description": "Reopen recently closed tab",
+      "keys": {
+        "mac": "⌘ + ⇧ + T",
+        "windows": "Ctrl + Shift + T",
+        "linux": "Ctrl + Shift + T"
+      },
+      "category": "Chrome Tabs"
+    },
+    {
+      "id": "next-tab",
+      "description": "Switch to next tab",
+      "keys": {
+        "mac": "⌘ + ⌥ + →",
+        "windows": "Ctrl + Tab",
+        "linux": "Ctrl + Page Down"
+      },
+      "category": "Chrome Tabs"
+    },
+    {
+      "id": "previous-tab",
+      "description": "Switch to previous tab",
+      "keys": {
+        "mac": "⌘ + ⌥ + ←",
+        "windows": "Ctrl + Shift + Tab",
+        "linux": "Ctrl + Page Up"
+      },
+      "category": "Chrome Tabs"
+    },
+    {
+      "id": "jump-to-tab-1",
+      "description": "Jump to tab 1",
+      "keys": {
+        "mac": "⌘ + 1",
+        "windows": "Ctrl + 1",
+        "linux": "Ctrl + 1"
+      },
+      "category": "Chrome Tabs"
+    },
+    {
+      "id": "jump-to-tab-2",
+      "description": "Jump to tab 2",
+      "keys": {
+        "mac": "⌘ + 2",
+        "windows": "Ctrl + 2",
+        "linux": "Ctrl + 2"
+      },
+      "category": "Chrome Tabs"
+    },
+    {
+      "id": "jump-to-tab-3",
+      "description": "Jump to tab 3",
+      "keys": {
+        "mac": "⌘ + 3",
+        "windows": "Ctrl + 3",
+        "linux": "Ctrl + 3"
+      },
+      "category": "Chrome Tabs"
+    },
+    {
+      "id": "jump-to-tab-4",
+      "description": "Jump to tab 4",
+      "keys": {
+        "mac": "⌘ + 4",
+        "windows": "Ctrl + 4",
+        "linux": "Ctrl + 4"
+      },
+      "category": "Chrome Tabs"
+    },
+    {
+      "id": "jump-to-tab-5",
+      "description": "Jump to tab 5",
+      "keys": {
+        "mac": "⌘ + 5",
+        "windows": "Ctrl + 5",
+        "linux": "Ctrl + 5"
+      },
+      "category": "Chrome Tabs"
+    },
+    {
+      "id": "jump-to-tab-6",
+      "description": "Jump to tab 6",
+      "keys": {
+        "mac": "⌘ + 6",
+        "windows": "Ctrl + 6",
+        "linux": "Ctrl + 6"
+      },
+      "category": "Chrome Tabs"
+    },
+    {
+      "id": "jump-to-tab-7",
+      "description": "Jump to tab 7",
+      "keys": {
+        "mac": "⌘ + 7",
+        "windows": "Ctrl + 7",
+        "linux": "Ctrl + 7"
+      },
+      "category": "Chrome Tabs"
+    },
+    {
+      "id": "jump-to-tab-8",
+      "description": "Jump to tab 8",
+      "keys": {
+        "mac": "⌘ + 8",
+        "windows": "Ctrl + 8",
+        "linux": "Ctrl + 8"
+      },
+      "category": "Chrome Tabs"
+    },
+    {
+      "id": "jump-to-last-tab",
+      "description": "Jump to last tab",
+      "keys": {
+        "mac": "⌘ + 9",
+        "windows": "Ctrl + 9",
+        "linux": "Ctrl + 9"
+      },
+      "category": "Chrome Tabs"
+    },
+    {
+      "id": "duplicate-tab",
+      "description": "Duplicate current tab",
+      "keys": {
+        "mac": "⌘ + ⇧ + A",
+        "windows": "Ctrl + Shift + K",
+        "linux": "Ctrl + Shift + K"
+      },
+      "category": "Chrome Tabs"
+    },
+    {
+      "id": "search-tabs",
+      "description": "Search tabs",
+      "keys": {
+        "mac": "⌘ + ⇧ + A",
+        "windows": "Ctrl + Shift + A",
+        "linux": "Ctrl + Shift + A"
+      },
+      "category": "Chrome Tabs"
+    },
+    {
+      "id": "move-tab-right",
+      "description": "Move tab to the right",
+      "keys": {
+        "mac": "⌘ + ⇧ + Page Down",
+        "windows": "Ctrl + Shift + Page Down",
+        "linux": "Ctrl + Shift + Page Down"
+      },
+      "category": "Chrome Tabs"
+    },
+    {
+      "id": "move-tab-left",
+      "description": "Move tab to the left",
+      "keys": {
+        "mac": "⌘ + ⇧ + Page Up",
+        "windows": "Ctrl + Shift + Page Up",
+        "linux": "Ctrl + Shift + Page Up"
+      },
+      "category": "Chrome Tabs"
+    },
+    {
+      "id": "new-window",
+      "description": "Open new window",
+      "keys": {
+        "mac": "⌘ + N",
+        "windows": "Ctrl + N",
+        "linux": "Ctrl + N"
+      },
+      "category": "Chrome Windows"
+    },
+    {
+      "id": "new-incognito-window",
+      "description": "Open new incognito window",
+      "keys": {
+        "mac": "⌘ + ⇧ + N",
+        "windows": "Ctrl + Shift + N",
+        "linux": "Ctrl + Shift + N"
+      },
+      "category": "Chrome Windows"
+    },
+    {
+      "id": "close-current-window",
+      "description": "Close current window",
+      "keys": {
+        "mac": "⌘ + ⇧ + W",
+        "windows": "Alt + F4",
+        "linux": "Ctrl + Shift + W"
+      },
+      "category": "Chrome Windows"
+    },
+    {
+      "id": "minimize-window-chrome",
+      "description": "Minimize window",
+      "keys": {
+        "mac": "⌘ + M",
+        "windows": "Alt + Space, then N",
+        "linux": "Alt + F9"
+      },
+      "category": "Chrome Windows"
+    },
+    {
+      "id": "maximize-window",
+      "description": "Maximize window",
+      "keys": {
+        "mac": "⌘ + ⌃ + F",
+        "windows": "Alt + Space, then X",
+        "linux": "Alt + F10"
+      },
+      "category": "Chrome Windows"
+    },
+    {
+      "id": "quit-chrome",
+      "description": "Quit Chrome",
+      "keys": {
+        "mac": "⌘ + Q",
+        "windows": "Ctrl + Shift + Q",
+        "linux": "Ctrl + Shift + Q"
+      },
+      "category": "Chrome Windows"
+    },
+    {
+      "id": "focus-address-bar",
+      "description": "Focus address bar",
+      "keys": {
+        "mac": "⌘ + L",
+        "windows": "Ctrl + L",
+        "linux": "Ctrl + L"
+      },
+      "category": "Chrome Address Bar"
+    },
+    {
+      "id": "focus-search-bar",
+      "description": "Focus search bar",
+      "keys": {
+        "mac": "⌘ + E",
+        "windows": "Ctrl + E",
+        "linux": "Ctrl + E"
+      },
+      "category": "Chrome Address Bar"
+    },
+    {
+      "id": "select-address-bar",
+      "description": "Select all in address bar",
+      "keys": {
+        "mac": "⌘ + L",
+        "windows": "F6",
+        "linux": "F6"
+      },
+      "category": "Chrome Address Bar"
+    },
+    {
+      "id": "back",
+      "description": "Go back",
+      "keys": {
+        "mac": "⌘ + ←",
+        "windows": "Alt + ←",
+        "linux": "Alt + ←"
+      },
+      "category": "Chrome Navigation"
+    },
+    {
+      "id": "forward",
+      "description": "Go forward",
+      "keys": {
+        "mac": "⌘ + →",
+        "windows": "Alt + →",
+        "linux": "Alt + →"
+      },
+      "category": "Chrome Navigation"
+    },
+    {
+      "id": "refresh-page",
+      "description": "Refresh current page",
+      "keys": {
+        "mac": "⌘ + R",
+        "windows": "F5",
+        "linux": "F5"
+      },
+      "category": "Chrome Navigation"
+    },
+    {
+      "id": "hard-refresh",
+      "description": "Hard refresh (ignore cache)",
+      "keys": {
+        "mac": "⌘ + ⇧ + R",
+        "windows": "Ctrl + F5",
+        "linux": "Ctrl + F5"
+      },
+      "category": "Chrome Navigation"
+    },
+    {
+      "id": "reload-ignore-cache",
+      "description": "Reload ignoring cached content",
+      "keys": {
+        "mac": "⌘ + ⇧ + R",
+        "windows": "Ctrl + Shift + R",
+        "linux": "Ctrl + Shift + R"
+      },
+      "category": "Chrome Navigation"
+    },
+    {
+      "id": "stop-loading",
+      "description": "Stop page loading",
+      "keys": {
+        "mac": "⌘ + .",
+        "windows": "Esc",
+        "linux": "Esc"
+      },
+      "category": "Chrome Navigation"
+    },
+    {
+      "id": "home-page",
+      "description": "Go to home page",
+      "keys": {
+        "mac": "⌘ + ⇧ + H",
+        "windows": "Alt + Home",
+        "linux": "Alt + Home"
+      },
+      "category": "Chrome Navigation"
+    },
+    {
+      "id": "zoom-in",
+      "description": "Zoom in",
+      "keys": {
+        "mac": "⌘ + Plus",
+        "windows": "Ctrl + Plus",
+        "linux": "Ctrl + Plus"
+      },
+      "category": "Chrome View"
+    },
+    {
+      "id": "zoom-out",
+      "description": "Zoom out",
+      "keys": {
+        "mac": "⌘ + Minus",
+        "windows": "Ctrl + Minus",
+        "linux": "Ctrl + Minus"
+      },
+      "category": "Chrome View"
+    },
+    {
+      "id": "reset-zoom",
+      "description": "Reset zoom to default",
+      "keys": {
+        "mac": "⌘ + 0",
+        "windows": "Ctrl + 0",
+        "linux": "Ctrl + 0"
+      },
+      "category": "Chrome View"
+    },
+    {
+      "id": "full-screen",
+      "description": "Toggle full screen mode",
+      "keys": {
+        "mac": "⌘ + ⌃ + F",
+        "windows": "F11",
+        "linux": "F11"
+      },
+      "category": "Chrome View"
+    },
+    {
+      "id": "show-hide-bookmarks",
+      "description": "Show or hide bookmarks bar",
+      "keys": {
+        "mac": "⌘ + ⇧ + B",
+        "windows": "Ctrl + Shift + B",
+        "linux": "Ctrl + Shift + B"
+      },
+      "category": "Chrome Features"
+    },
+    {
+      "id": "bookmarks-manager",
+      "description": "Open bookmarks manager",
+      "keys": {
+        "mac": "⌘ + ⌥ + B",
+        "windows": "Ctrl + Shift + O",
+        "linux": "Ctrl + Shift + O"
+      },
+      "category": "Chrome Features"
+    },
+    {
+      "id": "history",
+      "description": "Open browsing history",
+      "keys": {
+        "mac": "⌘ + Y",
+        "windows": "Ctrl + H",
+        "linux": "Ctrl + H"
+      },
+      "category": "Chrome Features"
+    },
+    {
+      "id": "downloads",
+      "description": "Show downloads",
+      "keys": {
+        "mac": "⌘ + ⇧ + J",
+        "windows": "Ctrl + J",
+        "linux": "Ctrl + J"
+      },
+      "category": "Chrome Features"
+    },
+    {
+      "id": "chrome-task-manager",
+      "description": "Open Chrome Task Manager",
+      "keys": {
+        "mac": "⌘ + ⇧ + Esc",
+        "windows": "Shift + Esc",
+        "linux": "Shift + Esc"
+      },
+      "category": "Chrome Features"
+    },
+    {
+      "id": "chrome-menu",
+      "description": "Open Chrome menu",
+      "keys": {
+        "mac": "⌘ + ,",
+        "windows": "Alt + F",
+        "linux": "Alt + F"
+      },
+      "category": "Chrome Features"
+    },
+    {
+      "id": "chrome-settings",
+      "description": "Open Chrome Settings",
+      "keys": {
+        "mac": "⌘ + ,",
+        "windows": "Alt + F, then S",
+        "linux": "Alt + F, then S"
+      },
+      "category": "Chrome Features"
+    },
+    {
+      "id": "open-file",
+      "description": "Open file in Chrome",
+      "keys": {
+        "mac": "⌘ + O",
+        "windows": "Ctrl + O",
+        "linux": "Ctrl + O"
+      },
+      "category": "Chrome Features"
+    },
+    {
+      "id": "find-in-page",
+      "description": "Find in page",
+      "keys": {
+        "mac": "⌘ + F",
+        "windows": "Ctrl + F",
+        "linux": "Ctrl + F"
+      },
+      "category": "Chrome Features"
+    },
+    {
+      "id": "find-next",
+      "description": "Find next",
+      "keys": {
+        "mac": "⌘ + G",
+        "windows": "Ctrl + G",
+        "linux": "Ctrl + G"
+      },
+      "category": "Chrome Features"
+    },
+    {
+      "id": "find-previous",
+      "description": "Find previous",
+      "keys": {
+        "mac": "⌘ + ⇧ + G",
+        "windows": "Ctrl + Shift + G",
+        "linux": "Ctrl + Shift + G"
+      },
+      "category": "Chrome Features"
+    },
+    {
+      "id": "bookmark-current-page",
+      "description": "Bookmark current page",
+      "keys": {
+        "mac": "⌘ + D",
+        "windows": "Ctrl + D",
+        "linux": "Ctrl + D"
+      },
+      "category": "Chrome Bookmarks"
+    },
+    {
+      "id": "bookmark-all-tabs",
+      "description": "Bookmark all open tabs",
+      "keys": {
+        "mac": "⌘ + ⇧ + D",
+        "windows": "Ctrl + Shift + D",
+        "linux": "Ctrl + Shift + D"
+      },
+      "category": "Chrome Bookmarks"
+    },
+    {
+      "id": "scroll-down-page",
+      "description": "Scroll down a page",
+      "keys": {
+        "mac": "Page Down",
+        "windows": "Page Down",
+        "linux": "Page Down"
+      },
+      "category": "Webpage Navigation"
+    },
+    {
+      "id": "scroll-up-page",
+      "description": "Scroll up a page",
+      "keys": {
+        "mac": "Page Up",
+        "windows": "Page Up",
+        "linux": "Page Up"
+      },
+      "category": "Webpage Navigation"
+    },
+    {
+      "id": "scroll-to-top",
+      "description": "Go to top of page",
+      "keys": {
+        "mac": "⌘ + ↑",
+        "windows": "Ctrl + Home",
+        "linux": "Ctrl + Home"
+      },
+      "category": "Webpage Navigation"
+    },
+    {
+      "id": "scroll-to-bottom",
+      "description": "Go to bottom of page",
+      "keys": {
+        "mac": "⌘ + ↓",
+        "windows": "Ctrl + End",
+        "linux": "Ctrl + End"
+      },
+      "category": "Webpage Navigation"
+    },
+    {
+      "id": "scroll-horizontally-left",
+      "description": "Scroll horizontally to the left",
+      "keys": {
+        "mac": "⇧ + Scroll wheel",
+        "windows": "Shift + Scroll wheel",
+        "linux": "Shift + Scroll wheel"
+      },
+      "category": "Webpage Navigation"
+    },
+    {
+      "id": "scroll-horizontally-right",
+      "description": "Scroll horizontally to the right",
+      "keys": {
+        "mac": "⇧ + Scroll wheel",
+        "windows": "Shift + Scroll wheel",
+        "linux": "Shift + Scroll wheel"
+      },
+      "category": "Webpage Navigation"
+    },
+    {
+      "id": "open-link-new-tab-background",
+      "description": "Open link in new background tab",
+      "keys": {
+        "mac": "⌘ + Click",
+        "windows": "Ctrl + Click",
+        "linux": "Ctrl + Click"
+      },
+      "category": "Mouse Shortcuts"
+    },
+    {
+      "id": "open-link-new-tab-foreground",
+      "description": "Open link in new foreground tab",
+      "keys": {
+        "mac": "⌘ + ⇧ + Click",
+        "windows": "Ctrl + Shift + Click",
+        "linux": "Ctrl + Shift + Click"
+      },
+      "category": "Mouse Shortcuts"
+    },
+    {
+      "id": "open-link-new-window",
+      "description": "Open link in new window",
+      "keys": {
+        "mac": "⇧ + Click link",
+        "windows": "Shift + Click link",
+        "linux": "Shift + Click link"
+      },
+      "category": "Mouse Shortcuts"
+    },
+    {
+      "id": "download-link",
+      "description": "Download linked file",
+      "keys": {
+        "mac": "⌥ + Click",
+        "windows": "Alt + Click",
+        "linux": "Alt + Click"
+      },
+      "category": "Mouse Shortcuts"
+    },
+    {
+      "id": "drag-tab-new-window",
+      "description": "Open tab in new window",
+      "keys": {
+        "mac": "Drag tab out",
+        "windows": "Drag tab out",
+        "linux": "Drag tab out"
+      },
+      "category": "Mouse Shortcuts"
+    },
+    {
+      "id": "close-tab-middle-click",
+      "description": "Close tab with middle click",
+      "keys": {
+        "mac": "Middle-click tab",
+        "windows": "Middle-click tab",
+        "linux": "Middle-click tab"
+      },
+      "category": "Mouse Shortcuts"
+    },
+    {
+      "id": "dev-tools",
+      "description": "Open Developer Tools",
+      "keys": {
+        "mac": "⌘ + ⌥ + I",
+        "windows": "F12",
+        "linux": "F12"
+      },
+      "category": "Chrome DevTools"
+    },
+    {
+      "id": "console",
+      "description": "Open JavaScript Console",
+      "keys": {
+        "mac": "⌘ + ⌥ + J",
+        "windows": "Ctrl + Shift + J",
+        "linux": "Ctrl + Shift + J"
+      },
+      "category": "Chrome DevTools"
+    },
+    {
+      "id": "inspect-element",
+      "description": "Inspect element",
+      "keys": {
+        "mac": "⌘ + ⇧ + C",
+        "windows": "Ctrl + Shift + C",
+        "linux": "Ctrl + Shift + C"
+      },
+      "category": "Chrome DevTools"
+    },
+    {
+      "id": "view-source",
+      "description": "View page source",
+      "keys": {
+        "mac": "⌘ + ⌥ + U",
+        "windows": "Ctrl + U",
+        "linux": "Ctrl + U"
+      },
+      "category": "Chrome DevTools"
+    },
+    {
+      "id": "toggle-device-toolbar",
+      "description": "Toggle device toolbar",
+      "keys": {
+        "mac": "⌘ + ⇧ + M",
+        "windows": "Ctrl + Shift + M",
+        "linux": "Ctrl + Shift + M"
+      },
+      "category": "Chrome DevTools"
+    },
+    {
+      "id": "open-devtools-last-panel",
+      "description": "Open DevTools to last used panel",
+      "keys": {
+        "mac": "F12",
+        "windows": "F12",
+        "linux": "F12"
+      },
+      "category": "Chrome DevTools"
+    },
+    {
+      "id": "toggle-inspect-element-mode",
+      "description": "Toggle inspect element mode",
+      "keys": {
+        "mac": "⌘ + ⇧ + C",
+        "windows": "Ctrl + Shift + C",
+        "linux": "Ctrl + Shift + C"
+      },
+      "category": "Chrome DevTools"
+    },
+    {
+      "id": "run-command",
+      "description": "Run command",
+      "keys": {
+        "mac": "⌘ + ⇧ + P",
+        "windows": "Ctrl + Shift + P",
+        "linux": "Ctrl + Shift + P"
+      },
+      "category": "DevTools General"
+    },
+    {
+      "id": "toggle-drawer",
+      "description": "Show/hide drawer",
+      "keys": {
+        "mac": "Esc",
+        "windows": "Esc",
+        "linux": "Esc"
+      },
+      "category": "DevTools General"
+    },
+    {
+      "id": "normal-reload-devtools",
+      "description": "Normal reload",
+      "keys": {
+        "mac": "⌘ + R",
+        "windows": "F5",
+        "linux": "F5"
+      },
+      "category": "DevTools General"
+    },
+    {
+      "id": "hard-reload-devtools",
+      "description": "Hard reload",
+      "keys": {
+        "mac": "⌘ + ⇧ + R",
+        "windows": "Ctrl + F5",
+        "linux": "Ctrl + F5"
+      },
+      "category": "DevTools General"
+    },
+    {
+      "id": "empty-cache-hard-reload",
+      "description": "Empty cache and hard reload",
+      "keys": {
+        "mac": "⌘ + ⇧ + R (hold)",
+        "windows": "Ctrl + Shift + F5",
+        "linux": "Ctrl + Shift + F5"
+      },
+      "category": "DevTools General"
+    },
+    {
+      "id": "auto-open-devtools-popups",
+      "description": "Auto-open DevTools for popups",
+      "keys": {
+        "mac": "⌘ + ⇧ + I",
+        "windows": "Ctrl + Shift + I",
+        "linux": "Ctrl + Shift + I"
+      },
+      "category": "DevTools General"
+    },
+    {
+      "id": "search-across-all-sources",
+      "description": "Search across all sources",
+      "keys": {
+        "mac": "⌘ + ⌥ + F",
+        "windows": "Ctrl + Shift + F",
+        "linux": "Ctrl + Shift + F"
+      },
+      "category": "DevTools General"
+    },
+    {
+      "id": "open-file-devtools",
+      "description": "Open file",
+      "keys": {
+        "mac": "⌘ + O",
+        "windows": "Ctrl + O",
+        "linux": "Ctrl + O"
+      },
+      "category": "DevTools General"
+    },
+    {
+      "id": "open-file-by-filename",
+      "description": "Open file by filename",
+      "keys": {
+        "mac": "⌘ + P",
+        "windows": "Ctrl + P",
+        "linux": "Ctrl + P"
+      },
+      "category": "DevTools General"
+    },
+    {
+      "id": "zoom-in-devtools",
+      "description": "Zoom in",
+      "keys": {
+        "mac": "⌘ + Plus",
+        "windows": "Ctrl + Plus",
+        "linux": "Ctrl + Plus"
+      },
+      "category": "DevTools General"
+    },
+    {
+      "id": "zoom-out-devtools",
+      "description": "Zoom out",
+      "keys": {
+        "mac": "⌘ + Minus",
+        "windows": "Ctrl + Minus",
+        "linux": "Ctrl + Minus"
+      },
+      "category": "DevTools General"
+    },
+    {
+      "id": "restore-default-zoom-devtools",
+      "description": "Restore default zoom level",
+      "keys": {
+        "mac": "⌘ + 0",
+        "windows": "Ctrl + 0",
+        "linux": "Ctrl + 0"
+      },
+      "category": "DevTools General"
+    },
+    {
+      "id": "run-snippet",
+      "description": "Run snippet",
+      "keys": {
+        "mac": "⌘ + ↩",
+        "windows": "Ctrl + Enter",
+        "linux": "Ctrl + Enter"
+      },
+      "category": "DevTools General"
+    },
+    {
+      "id": "search-elements-panel",
+      "description": "Search (Elements panel)",
+      "keys": {
+        "mac": "⌘ + F",
+        "windows": "Ctrl + F",
+        "linux": "Ctrl + F"
+      },
+      "category": "DevTools Elements"
+    },
+    {
+      "id": "search-by-xpath",
+      "description": "Search by XPath",
+      "keys": {
+        "mac": "⌘ + F, then XPath",
+        "windows": "Ctrl + F, then XPath",
+        "linux": "Ctrl + F, then XPath"
+      },
+      "category": "DevTools Elements"
+    },
+    {
+      "id": "edit-attribute-elements",
+      "description": "Edit attribute",
+      "keys": {
+        "mac": "↩",
+        "windows": "Enter",
+        "linux": "Enter"
+      },
+      "category": "DevTools Elements"
+    },
+    {
+      "id": "hide-show-element",
+      "description": "Hide/show element",
+      "keys": {
+        "mac": "H",
+        "windows": "H",
+        "linux": "H"
+      },
+      "category": "DevTools Elements"
+    },
+    {
+      "id": "edit-as-html-elements",
+      "description": "Edit as HTML",
+      "keys": {
+        "mac": "F2",
+        "windows": "F2",
+        "linux": "F2"
+      },
+      "category": "DevTools Elements"
+    },
+    {
+      "id": "duplicate-element",
+      "description": "Duplicate element",
+      "keys": {
+        "mac": "⌘ + D",
+        "windows": "Ctrl + D",
+        "linux": "Ctrl + D"
+      },
+      "category": "DevTools Elements"
+    },
+    {
+      "id": "undo-elements",
+      "description": "Undo change",
+      "keys": {
+        "mac": "⌘ + Z",
+        "windows": "Ctrl + Z",
+        "linux": "Ctrl + Z"
+      },
+      "category": "DevTools Elements"
+    },
+    {
+      "id": "redo-elements",
+      "description": "Redo change",
+      "keys": {
+        "mac": "⌘ + ⇧ + Z",
+        "windows": "Ctrl + Y",
+        "linux": "Ctrl + Shift + Z"
+      },
+      "category": "DevTools Elements"
+    },
+    {
+      "id": "expand-collapse-node",
+      "description": "Expand/collapse node and children",
+      "keys": {
+        "mac": "⌥ + Click arrow",
+        "windows": "Alt + Click arrow",
+        "linux": "Alt + Click arrow"
+      },
+      "category": "DevTools Elements"
+    },
+    {
+      "id": "expand-node",
+      "description": "Expand node",
+      "keys": {
+        "mac": "→",
+        "windows": "Right arrow",
+        "linux": "Right arrow"
+      },
+      "category": "DevTools Elements"
+    },
+    {
+      "id": "collapse-node",
+      "description": "Collapse node",
+      "keys": {
+        "mac": "←",
+        "windows": "Left arrow",
+        "linux": "Left arrow"
+      },
+      "category": "DevTools Elements"
+    },
+    {
+      "id": "move-up-elements",
+      "description": "Move up",
+      "keys": {
+        "mac": "↑",
+        "windows": "Up arrow",
+        "linux": "Up arrow"
+      },
+      "category": "DevTools Elements"
+    },
+    {
+      "id": "move-down-elements",
+      "description": "Move down",
+      "keys": {
+        "mac": "↓",
+        "windows": "Down arrow",
+        "linux": "Down arrow"
+      },
+      "category": "DevTools Elements"
+    },
+    {
+      "id": "increment-css-value",
+      "description": "Increment CSS unit by 1",
+      "keys": {
+        "mac": "↑",
+        "windows": "Up arrow",
+        "linux": "Up arrow"
+      },
+      "category": "DevTools Styles"
+    },
+    {
+      "id": "decrement-css-value",
+      "description": "Decrement CSS unit by 1",
+      "keys": {
+        "mac": "↓",
+        "windows": "Down arrow",
+        "linux": "Down arrow"
+      },
+      "category": "DevTools Styles"
+    },
+    {
+      "id": "increment-css-value-10",
+      "description": "Increment CSS unit by 10",
+      "keys": {
+        "mac": "⇧ + ↑",
+        "windows": "Shift + Up arrow",
+        "linux": "Shift + Up arrow"
+      },
+      "category": "DevTools Styles"
+    },
+    {
+      "id": "decrement-css-value-10",
+      "description": "Decrement CSS unit by 10",
+      "keys": {
+        "mac": "⇧ + ↓",
+        "windows": "Shift + Down arrow",
+        "linux": "Shift + Down arrow"
+      },
+      "category": "DevTools Styles"
+    },
+    {
+      "id": "increment-css-value-100",
+      "description": "Increment CSS unit by 100",
+      "keys": {
+        "mac": "⌘ + ↑",
+        "windows": "Ctrl + Up arrow",
+        "linux": "Ctrl + Up arrow"
+      },
+      "category": "DevTools Styles"
+    },
+    {
+      "id": "decrement-css-value-100",
+      "description": "Decrement CSS unit by 100",
+      "keys": {
+        "mac": "⌘ + ↓",
+        "windows": "Ctrl + Down arrow",
+        "linux": "Ctrl + Down arrow"
+      },
+      "category": "DevTools Styles"
+    },
+    {
+      "id": "increment-css-value-01",
+      "description": "Increment CSS unit by 0.1",
+      "keys": {
+        "mac": "⌥ + ↑",
+        "windows": "Alt + Up arrow",
+        "linux": "Alt + Up arrow"
+      },
+      "category": "DevTools Styles"
+    },
+    {
+      "id": "decrement-css-value-01",
+      "description": "Decrement CSS unit by 0.1",
+      "keys": {
+        "mac": "⌥ + ↓",
+        "windows": "Alt + Down arrow",
+        "linux": "Alt + Down arrow"
+      },
+      "category": "DevTools Styles"
+    },
+    {
+      "id": "accept-autocomplete",
+      "description": "Accept autocomplete suggestion",
+      "keys": {
+        "mac": "→ or ⇥",
+        "windows": "Right arrow or Tab",
+        "linux": "Right arrow or Tab"
+      },
+      "category": "DevTools Console"
+    },
+    {
+      "id": "previous-console-command",
+      "description": "Previous command",
+      "keys": {
+        "mac": "↑",
+        "windows": "Up arrow",
+        "linux": "Up arrow"
+      },
+      "category": "DevTools Console"
+    },
+    {
+      "id": "next-console-command",
+      "description": "Next command",
+      "keys": {
+        "mac": "↓",
+        "windows": "Down arrow",
+        "linux": "Down arrow"
+      },
+      "category": "DevTools Console"
+    },
+    {
+      "id": "focus-console",
+      "description": "Focus the Console",
+      "keys": {
+        "mac": "⌘ + `",
+        "windows": "Ctrl + `",
+        "linux": "Ctrl + `"
+      },
+      "category": "DevTools Console"
+    },
+    {
+      "id": "clear-console-history",
+      "description": "Clear console history",
+      "keys": {
+        "mac": "⌘ + K",
+        "windows": "Ctrl + L",
+        "linux": "Ctrl + L"
+      },
+      "category": "DevTools Console"
+    },
+    {
+      "id": "expand-console-message",
+      "description": "Expand all sub-properties of object",
+      "keys": {
+        "mac": "⌥ + Click",
+        "windows": "Alt + Click",
+        "linux": "Alt + Click"
+      },
+      "category": "DevTools Console"
+    },
+    {
+      "id": "open-sources-search",
+      "description": "Open file",
+      "keys": {
+        "mac": "⌘ + O",
+        "windows": "Ctrl + O",
+        "linux": "Ctrl + O"
+      },
+      "category": "DevTools Sources"
+    },
+    {
+      "id": "go-to-line",
+      "description": "Go to line",
+      "keys": {
+        "mac": "⌘ + G",
+        "windows": "Ctrl + G",
+        "linux": "Ctrl + G"
+      },
+      "category": "DevTools Sources"
+    },
+    {
+      "id": "go-to-member",
+      "description": "Go to member",
+      "keys": {
+        "mac": "⌘ + ⇧ + O",
+        "windows": "Ctrl + Shift + O",
+        "linux": "Ctrl + Shift + O"
+      },
+      "category": "DevTools Sources"
+    },
+    {
+      "id": "close-active-tab-sources",
+      "description": "Close active tab",
+      "keys": {
+        "mac": "⌥ + W",
+        "windows": "Alt + W",
+        "linux": "Alt + W"
+      },
+      "category": "DevTools Sources"
+    },
+    {
+      "id": "run-code-snippet",
+      "description": "Run snippet",
+      "keys": {
+        "mac": "⌘ + ↩",
+        "windows": "Ctrl + Enter",
+        "linux": "Ctrl + Enter"
+      },
+      "category": "DevTools Sources"
+    },
+    {
+      "id": "toggle-comment",
+      "description": "Toggle comment",
+      "keys": {
+        "mac": "⌘ + /",
+        "windows": "Ctrl + /",
+        "linux": "Ctrl + /"
+      },
+      "category": "DevTools Sources"
+    },
+    {
+      "id": "save-changes",
+      "description": "Save changes",
+      "keys": {
+        "mac": "⌘ + S",
+        "windows": "Ctrl + S",
+        "linux": "Ctrl + S"
+      },
+      "category": "DevTools Sources"
+    },
+    {
+      "id": "save-all-changes",
+      "description": "Save all changes",
+      "keys": {
+        "mac": "⌘ + ⌥ + S",
+        "windows": "Ctrl + Alt + S",
+        "linux": "Ctrl + Alt + S"
+      },
+      "category": "DevTools Sources"
+    },
+    {
+      "id": "go-to-matching-bracket",
+      "description": "Go to matching bracket",
+      "keys": {
+        "mac": "⌘ + M",
+        "windows": "Ctrl + M",
+        "linux": "Ctrl + M"
+      },
+      "category": "DevTools Sources"
+    },
+    {
+      "id": "select-next-occurrence",
+      "description": "Select next occurrence of current word",
+      "keys": {
+        "mac": "⌘ + D",
+        "windows": "Ctrl + D",
+        "linux": "Ctrl + D"
+      },
+      "category": "DevTools Sources"
+    },
+    {
+      "id": "jump-to-previous-edit",
+      "description": "Jump to previous editing location",
+      "keys": {
+        "mac": "⌥ + Minus",
+        "windows": "Alt + Minus",
+        "linux": "Alt + Minus"
+      },
+      "category": "DevTools Sources"
+    },
+    {
+      "id": "jump-to-next-edit",
+      "description": "Jump to next editing location",
+      "keys": {
+        "mac": "⌥ + Plus",
+        "windows": "Alt + Plus",
+        "linux": "Alt + Plus"
+      },
+      "category": "DevTools Sources"
+    },
+    {
+      "id": "toggle-breakpoint-sources",
+      "description": "Toggle breakpoint",
+      "keys": {
+        "mac": "⌘ + B",
+        "windows": "Ctrl + B",
+        "linux": "Ctrl + B"
+      },
+      "category": "DevTools Sources"
+    },
+    {
+      "id": "toggle-breakpoint-condition",
+      "description": "Edit breakpoint condition",
+      "keys": {
+        "mac": "⌘ + ⇧ + B",
+        "windows": "Ctrl + Shift + B",
+        "linux": "Ctrl + Shift + B"
+      },
+      "category": "DevTools Sources"
+    },
+    {
+      "id": "pause-resume-execution",
+      "description": "Pause/resume script execution",
+      "keys": {
+        "mac": "F8",
+        "windows": "F8",
+        "linux": "F8"
+      },
+      "category": "DevTools Debugging"
+    },
+    {
+      "id": "step-over-function",
+      "description": "Step over next function call",
+      "keys": {
+        "mac": "F10",
+        "windows": "F10",
+        "linux": "F10"
+      },
+      "category": "DevTools Debugging"
+    },
+    {
+      "id": "step-into-function",
+      "description": "Step into next function call",
+      "keys": {
+        "mac": "F11",
+        "windows": "F11",
+        "linux": "F11"
+      },
+      "category": "DevTools Debugging"
+    },
+    {
+      "id": "step-out-function",
+      "description": "Step out of current function",
+      "keys": {
+        "mac": "⇧ + F11",
+        "windows": "Shift + F11",
+        "linux": "Shift + F11"
+      },
+      "category": "DevTools Debugging"
+    },
+    {
+      "id": "show-network-conditions",
+      "description": "Show Network conditions",
+      "keys": {
+        "mac": "⌘ + ⇧ + P, then 'network conditions'",
+        "windows": "Ctrl + Shift + P, then 'network conditions'",
+        "linux": "Ctrl + Shift + P, then 'network conditions'"
+      },
+      "category": "DevTools Network"
+    },
+    {
+      "id": "hide-show-overview",
+      "description": "Hide/show overview",
+      "keys": {
+        "mac": "⌘ + ⇧ + H",
+        "windows": "Ctrl + Shift + H",
+        "linux": "Ctrl + Shift + H"
+      },
+      "category": "DevTools Network"
+    },
+    {
+      "id": "start-stop-recording",
+      "description": "Start/stop recording",
+      "keys": {
+        "mac": "⌘ + E",
+        "windows": "Ctrl + E",
+        "linux": "Ctrl + E"
+      },
+      "category": "DevTools Performance"
+    },
+    {
+      "id": "save-recording",
+      "description": "Save recording",
+      "keys": {
+        "mac": "⌘ + S",
+        "windows": "Ctrl + S",
+        "linux": "Ctrl + S"
+      },
+      "category": "DevTools Performance"
+    },
+    {
+      "id": "load-recording",
+      "description": "Load recording",
+      "keys": {
+        "mac": "⌘ + O",
+        "windows": "Ctrl + O",
+        "linux": "Ctrl + O"
+      },
+      "category": "DevTools Performance"
+    },
+    {
+      "id": "take-heap-snapshot",
+      "description": "Take heap snapshot",
+      "keys": {
+        "mac": "⌘ + ⇧ + T",
+        "windows": "Ctrl + Shift + T",
+        "linux": "Ctrl + Shift + T"
+      },
+      "category": "DevTools Memory"
+    },
+    {
+      "id": "toggle-recording-memory",
+      "description": "Toggle recording",
+      "keys": {
+        "mac": "⌘ + E",
+        "windows": "Ctrl + E",
+        "linux": "Ctrl + E"
+      },
+      "category": "DevTools Memory"
+    },
+    {
+      "id": "select-all-text",
+      "description": "Select all text",
+      "keys": {
+        "mac": "⌘ + A",
+        "windows": "Ctrl + A",
+        "linux": "Ctrl + A"
+      },
+      "category": "Text Selection"
+    },
+    {
+      "id": "select-word",
+      "description": "Select word",
+      "keys": {
+        "mac": "Double-click",
+        "windows": "Double-click",
+        "linux": "Double-click"
+      },
+      "category": "Text Selection"
+    },
+    {
+      "id": "select-line",
+      "description": "Select line",
+      "keys": {
+        "mac": "Triple-click",
+        "windows": "Triple-click",
+        "linux": "Triple-click"
+      },
+      "category": "Text Selection"
+    },
+    {
+      "id": "extend-selection-word",
+      "description": "Extend selection by word",
+      "keys": {
+        "mac": "⌥ + ⇧ + → or ←",
+        "windows": "Ctrl + Shift + → or ←",
+        "linux": "Ctrl + Shift + → or ←"
+      },
+      "category": "Text Selection"
+    },
+    {
+      "id": "extend-selection-line",
+      "description": "Extend selection to line end/start",
+      "keys": {
+        "mac": "⌘ + ⇧ + → or ←",
+        "windows": "Shift + End or Home",
+        "linux": "Shift + End or Home"
+      },
+      "category": "Text Selection"
+    },
+    {
+      "id": "pin-unpin-tab",
+      "description": "Pin or unpin tab",
+      "keys": {
+        "mac": "Right-click tab",
+        "windows": "Right-click tab",
+        "linux": "Right-click tab"
+      },
+      "category": "Chrome Tabs"
+    },
+    {
+      "id": "mute-unmute-tab",
+      "description": "Mute or unmute tab",
+      "keys": {
+        "mac": "Click sound icon",
+        "windows": "Click sound icon",
+        "linux": "Click sound icon"
+      },
+      "category": "Chrome Tabs"
+    },
+    {
+      "id": "right-click-back",
+      "description": "Go back (right-click back button)",
+      "keys": {
+        "mac": "Right-click Back",
+        "windows": "Right-click Back",
+        "linux": "Right-click Back"
+      },
+      "category": "Mouse Shortcuts"
+    },
+    {
+      "id": "right-click-forward",
+      "description": "Go forward (right-click forward button)",
+      "keys": {
+        "mac": "Right-click Forward",
+        "windows": "Right-click Forward",
+        "linux": "Right-click Forward"
+      },
+      "category": "Mouse Shortcuts"
+    },
+    {
+      "id": "right-click-reload",
+      "description": "Show reload options",
+      "keys": {
+        "mac": "Right-click Reload",
+        "windows": "Right-click Reload",
+        "linux": "Right-click Reload"
+      },
+      "category": "Mouse Shortcuts"
+    },
+    {
+      "id": "drag-address-bar",
+      "description": "Move tab by dragging address bar",
+      "keys": {
+        "mac": "Drag address bar",
+        "windows": "Drag address bar",
+        "linux": "Drag address bar"
+      },
+      "category": "Mouse Shortcuts"
+    },
+    {
+      "id": "resize-address-bar",
+      "description": "Resize address bar",
+      "keys": {
+        "mac": "Drag address bar edge",
+        "windows": "Drag address bar edge",
+        "linux": "Drag address bar edge"
+      },
+      "category": "Mouse Shortcuts"
+    },
+    {
+      "id": "open-devtools-inspect",
+      "description": "Open DevTools and inspect element",
+      "keys": {
+        "mac": "Right-click + Inspect",
+        "windows": "Right-click + Inspect",
+        "linux": "Right-click + Inspect"
+      },
+      "category": "Chrome DevTools"
+    },
+    {
+      "id": "open-security-panel",
+      "description": "Open Security panel",
+      "keys": {
+        "mac": "⌘ + ⌥ + I, then Security",
+        "windows": "F12, then Security",
+        "linux": "F12, then Security"
+      },
+      "category": "Chrome DevTools"
+    },
+    {
+      "id": "emulate-focused-page",
+      "description": "Emulate a focused page",
+      "keys": {
+        "mac": "⌘ + ⇧ + P, then type 'focused'",
+        "windows": "Ctrl + Shift + P, then type 'focused'",
+        "linux": "Ctrl + Shift + P, then type 'focused'"
+      },
+      "category": "DevTools General"
+    },
+    {
+      "id": "delete-text-to-end-of-line",
+      "description": "Delete text to end of line",
+      "keys": {
+        "mac": "⌘ + Delete",
+        "windows": "Ctrl + Delete",
+        "linux": "Ctrl + Delete"
+      },
+      "category": "DevTools Sources"
+    },
+    {
+      "id": "add-selection-to-next-occurrence",
+      "description": "Add selection to next occurrence",
+      "keys": {
+        "mac": "⌘ + D",
+        "windows": "Ctrl + D",
+        "linux": "Ctrl + D"
+      },
+      "category": "DevTools Sources"
+    },
+    {
+      "id": "add-selection-to-all-occurrences",
+      "description": "Add selection to all occurrences",
+      "keys": {
+        "mac": "⌘ + ⌃ + G",
+        "windows": "Ctrl + Alt + G",
+        "linux": "Ctrl + Alt + G"
+      },
+      "category": "DevTools Sources"
+    }
+  ]
+}

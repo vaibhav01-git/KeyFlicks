@@ -1,0 +1,193 @@
+/* Tailwind CSS - Custom Build for KeyFlicks */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Tailwind Base */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: #e5e7eb;
+}
+
+html {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  -moz-tab-size: 4;
+  tab-size: 4;
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+}
+
+body {
+  margin: 0;
+  line-height: inherit;
+}
+
+/* Custom CSS Variables for Theme */
+:root {
+  --primary-blue: #1e3a8a;
+  --secondary-blue: #3b82f6;
+  --primary-purple: #7c3aed;
+  --secondary-purple: #a855f7;
+  --accent-green: #10b981;
+  --secondary-green: #34d399;
+  --neutral-gray-900: #1f2937;
+  --neutral-gray-700: #374151;
+  --neutral-gray-500: #6b7280;
+  --dark-bg: #0f172a;
+  --dark-secondary: #1e293b;
+}
+
+.dark {
+  --primary-blue: #3b82f6;
+  --secondary-blue: #60a5fa;
+  --primary-purple: #a855f7;
+  --secondary-purple: #c084fc;
+  --accent-green: #34d399;
+  --secondary-green: #6ee7b7;
+}
+
+/* Utility Classes */
+.min-h-screen { min-height: 100vh; }
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-shrink-0 { flex-shrink: 0; }
+.flex-1 { flex: 1 1 0%; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.grid { display: grid; }
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.gap-8 { gap: 2rem; }
+.max-w-6xl { max-width: 72rem; }
+.w-full { width: 100%; }
+.w-6 { width: 1.5rem; }
+.h-6 { height: 1.5rem; }
+.h-12 { height: 3rem; }
+.w-12 { width: 3rem; }
+.p-3 { padding: 0.75rem; }
+.p-8 { padding: 2rem; }
+.px-8 { padding-left: 2rem; padding-right: 2rem; }
+.pt-32 { padding-top: 8rem; }
+.pb-8 { padding-bottom: 2rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.mr-4 { margin-right: 1rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.text-white { color: rgb(255 255 255); }
+.text-blue-200 { color: rgb(191 219 254); }
+.text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+.text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+.text-2xl { font-size: 1.5rem; line-height: 2rem; }
+.text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+.text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+.font-bold { font-weight: 700; }
+.font-mono { font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace; }
+.italic { font-style: italic; }
+.leading-relaxed { line-height: 1.625; }
+.opacity-90 { opacity: 0.9; }
+.opacity-80 { opacity: 0.8; }
+.opacity-70 { opacity: 0.7; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.fixed { position: fixed; }
+.top-8 { top: 2rem; }
+.right-8 { right: 2rem; }
+.inset-0 { top: 0px; right: 0px; bottom: 0px; left: 0px; }
+.z-50 { z-index: 50; }
+.bg-black { background-color: rgb(0 0 0); }
+.bg-opacity-50 { background-color: rgb(0 0 0 / 0.5); }
+.rounded-full { border-radius: 9999px; }
+.border-b-2 { border-bottom-width: 2px; }
+.border-white { border-color: rgb(255 255 255); }
+.hidden { display: none; }
+.transition-transform { transition-property: transform; }
+.duration-200 { transition-duration: 200ms; }
+.hover\:scale-110:hover { transform: scale(1.1); }
+
+/* Responsive Design */
+@media (min-width: 1024px) {
+  .lg\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Dark Mode */
+.dark .text-white { color: rgb(255 255 255); }
+.dark .text-blue-200 { color: rgb(147 197 253); }
+
+/* Animation Classes */
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.animation-delay-200 {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Utility classes for the new layout */
+.hidden {
+  display: none !important;
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.relative {
+  position: relative;
+}
+
+.z-10 {
+  z-index: 10;
+}
+
+.z-20 {
+  z-index: 20;
+}
+
+/* Theme transition support */
+.chrome-newtab-body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.keyflicks-card {
+  transition: all 0.3s ease;
+}
+
+.theme-toggle-btn {
+  transition: all 0.3s ease;
+}

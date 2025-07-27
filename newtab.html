@@ -1,0 +1,2158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Tab</title>
+    <style>
+        /* Minimal styles to overlay on Chrome's default new tab */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            position: relative;
+            overflow-x: hidden;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 40% 80%, rgba(120, 119, 255, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 0% 0%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at 100% 100%, rgba(120, 200, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(200, 200, 255, 0.1) 0%, transparent 50%),
+                linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #0a0a0a 100%);
+            min-height: 100vh;
+        }
+
+        /* Light theme */
+        body.light {
+            background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 50%, #cbd5e0 100%);
+        }
+
+        /* Google-style Search Interface */
+        #google-search-container {
+            position: fixed;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 800;
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+            padding: 0 20px;
+        }
+
+        #google-logo {
+            font-size: 90px;
+            font-weight: 400;
+            color: #e8eaed;
+            margin-bottom: 30px;
+            font-family: 'Product Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: -5px;
+        }
+
+        .google-letter-g1 {
+            color: #4285f4;
+        }
+
+        .google-letter-o1 {
+            color: #ea4335;
+        }
+
+        .google-letter-o2 {
+            color: #fbbc05;
+        }
+
+        .google-letter-g2 {
+            color: #4285f4;
+        }
+
+        .google-letter-l {
+            color: #34a853;
+        }
+
+        .google-letter-e {
+            color: #ea4335;
+        }
+
+        #google-search-wrapper {
+            position: relative;
+            max-width: 584px;
+            margin: 0 auto;
+        }
+
+        #google-search-box {
+            width: 100%;
+            height: 44px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            background: rgba(32, 33, 36, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0 16px 0 45px;
+            font-size: 16px;
+            color: #e8eaed;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+
+        #google-search-box:hover {
+            background: rgba(32, 33, 36, 0.9);
+            box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        #google-search-box:focus {
+            background: rgba(32, 33, 36, 0.95);
+            border-color: rgba(138, 180, 248, 0.8);
+            box-shadow: 0 2px 8px 1px rgba(138, 180, 248, 0.2);
+        }
+
+        #google-search-box::placeholder {
+            color: #9aa0a6;
+        }
+
+        .google-search-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            opacity: 0.6;
+        }
+
+        .google-search-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: #9aa0a6;
+        }
+
+        .google-voice-icon {
+            position: absolute;
+            right: 45px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: opacity 0.2s ease;
+        }
+
+        .google-voice-icon:hover {
+            opacity: 1;
+        }
+
+        .google-camera-icon {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: opacity 0.2s ease;
+        }
+
+        .google-camera-icon:hover {
+            opacity: 1;
+        }
+
+        .google-buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+        }
+
+        .google-btn {
+            background: rgba(48, 49, 52, 0.8);
+            border: 1px solid rgba(48, 49, 52, 0.8);
+            border-radius: 4px;
+            color: #e8eaed;
+            font-size: 14px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .google-btn:hover {
+            background: rgba(48, 49, 52, 0.9);
+            border-color: rgba(95, 99, 104, 0.8);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        /* KeyFlicks overlay container */
+        #keyflicks-overlay {
+            position: fixed;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 1000;
+            pointer-events: none;
+        }
+
+        /* Individual cards */
+        .keyflicks-card {
+            background: rgba(32, 33, 36, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 16px;
+            width: 280px;
+            min-height: 100px;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            color: #e8eaed;
+            pointer-events: auto;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUp 0.6s ease-out forwards;
+        }
+
+        .keyflicks-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .keyflicks-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Card header */
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .card-icon {
+            font-size: 16px;
+        }
+
+        .card-title {
+            font-size: 13px;
+            font-weight: 500;
+            margin: 0;
+            color: #9aa0a6;
+            flex: 1;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 4px;
+        }
+
+        .action-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 4px;
+            padding: 4px;
+            color: #9aa0a6;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .action-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #e8eaed;
+        }
+
+        /* Shortcut card styles */
+        .shortcut-keys {
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 15px;
+            font-weight: 600;
+            color: #8ab4f8;
+            margin-bottom: 6px;
+        }
+
+        .shortcut-description {
+            font-size: 13px;
+            line-height: 1.4;
+            color: #e8eaed;
+        }
+
+        .shortcut-category {
+            font-size: 10px;
+            color: #9aa0a6;
+            margin-top: 4px;
+            padding: 2px 6px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        /* Quote card styles */
+        .quote-text {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #e8eaed;
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+
+        .quote-author {
+            font-size: 12px;
+            color: #9aa0a6;
+            text-align: right;
+        }
+
+        /* KeyFlicks Branding */
+        #keyflicks-branding {
+            position: fixed;
+            top: 20px;
+            right: 70px;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            font-style: italic;
+            color: #ffffff;
+            text-shadow:
+                0 1px 2px rgba(0, 0, 0, 0.8),
+                0 2px 4px rgba(0, 0, 0, 0.4);
+            z-index: 1002;
+            letter-spacing: 0.5px;
+            opacity: 0;
+            animation: brandingFadeIn 1s ease-out 0.5s forwards;
+            cursor: default;
+            user-select: none;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2));
+            padding: 8px 12px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes brandingFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            100% {
+                opacity: 0.9;
+                transform: translateY(0);
+            }
+        }
+
+        #keyflicks-branding:hover {
+            opacity: 1;
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+        }
+
+        /* Theme toggle */
+        #theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 36px;
+            height: 36px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(32, 33, 36, 0.8);
+            color: #e8eaed;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+
+        #theme-toggle:hover {
+            transform: scale(1.1);
+            background: rgba(32, 33, 36, 0.9);
+        }
+
+        .theme-icon {
+            width: 18px;
+            height: 18px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Light theme adjustments */
+        body.light #google-logo {
+            color: #202124;
+            text-shadow: none;
+        }
+
+        body.light #google-search-box {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: rgba(223, 225, 229, 0.8);
+            color: #202124;
+        }
+
+        body.light #google-search-box:hover {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 8px 1px rgba(32, 33, 36, 0.1);
+        }
+
+        body.light #google-search-box:focus {
+            background: rgba(255, 255, 255, 1);
+            border-color: rgba(26, 115, 232, 0.8);
+            box-shadow: 0 2px 8px 1px rgba(26, 115, 232, 0.1);
+        }
+
+        body.light #google-search-box::placeholder {
+            color: #5f6368;
+        }
+
+        body.light .google-search-icon svg {
+            fill: #5f6368;
+        }
+
+        body.light .google-btn {
+            background: rgba(248, 249, 250, 0.9);
+            border-color: rgba(248, 249, 250, 0.9);
+            color: #3c4043;
+        }
+
+        body.light .google-btn:hover {
+            background: rgba(248, 249, 250, 1);
+            border-color: rgba(218, 220, 224, 0.8);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        body.light #keyflicks-overlay .keyflicks-card {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            color: #202124;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        body.light .card-title {
+            color: #5f6368;
+        }
+
+        body.light .shortcut-keys {
+            color: #1a73e8;
+        }
+
+        body.light .shortcut-description,
+        body.light .quote-text {
+            color: #202124;
+        }
+
+        body.light .quote-author {
+            color: #5f6368;
+        }
+
+        body.light #keyflicks-branding {
+            color: #1a1a1a;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            text-shadow:
+                0 1px 2px rgba(255, 255, 255, 0.9),
+                0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        body.light #theme-toggle {
+            background: rgba(255, 255, 255, 0.8);
+            color: #202124;
+        }
+
+        body.light #theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Loading overlay */
+        #loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .loading-content {
+            background: rgba(32, 33, 36, 0.95);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: #e8eaed;
+        }
+
+        .loading-spinner {
+            width: 24px;
+            height: 24px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top: 2px solid #8ab4f8;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Footer */
+        #footer {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 14px;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.6);
+            text-align: center;
+            z-index: 1000;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        #footer a {
+            color: rgba(138, 180, 248, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        #footer a:hover {
+            color: rgba(138, 180, 248, 1);
+            text-shadow: 0 0 8px rgba(138, 180, 248, 0.4);
+        }
+
+        /* Light theme footer */
+        body.light #footer {
+            color: rgba(0, 0, 0, 0.6);
+        }
+
+        body.light #footer a {
+            color: rgba(26, 115, 232, 0.8);
+        }
+
+        body.light #footer a:hover {
+            color: rgba(26, 115, 232, 1);
+            text-shadow: 0 0 8px rgba(26, 115, 232, 0.3);
+        }
+
+        /* Animated Network Shapes */
+        #network-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .network-node {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: rgba(138, 180, 248, 0.9);
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(138, 180, 248, 0.8);
+            animation: networkFloat 8s ease-in-out infinite;
+        }
+
+        .network-line {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(138, 180, 248, 0.6), transparent);
+            transform-origin: left center;
+            animation: networkPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes networkFloat {
+
+            0%,
+            100% {
+                transform: translateY(0px) translateX(0px);
+            }
+
+            25% {
+                transform: translateY(-20px) translateX(10px);
+            }
+
+            50% {
+                transform: translateY(-10px) translateX(-15px);
+            }
+
+            75% {
+                transform: translateY(-25px) translateX(5px);
+            }
+        }
+
+        @keyframes networkPulse {
+
+            0%,
+            100% {
+                opacity: 0.2;
+                transform: scaleX(0.8);
+            }
+
+            50% {
+                opacity: 0.6;
+                transform: scaleX(1.2);
+            }
+        }
+
+        /* Network nodes at different positions */
+        .network-node:nth-child(1) {
+            top: 15%;
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        .network-node:nth-child(2) {
+            top: 25%;
+            left: 70%;
+            animation-delay: 1s;
+        }
+
+        .network-node:nth-child(3) {
+            top: 45%;
+            left: 15%;
+            animation-delay: 2s;
+        }
+
+        .network-node:nth-child(4) {
+            top: 35%;
+            left: 85%;
+            animation-delay: 3s;
+        }
+
+        .network-node:nth-child(5) {
+            top: 65%;
+            left: 30%;
+            animation-delay: 4s;
+        }
+
+        .network-node:nth-child(6) {
+            top: 75%;
+            left: 80%;
+            animation-delay: 5s;
+        }
+
+        .network-node:nth-child(7) {
+            top: 55%;
+            left: 60%;
+            animation-delay: 6s;
+        }
+
+        .network-node:nth-child(8) {
+            top: 85%;
+            left: 45%;
+            animation-delay: 7s;
+        }
+
+        /* Light theme network adjustments */
+        body.light .network-node {
+            background: rgba(26, 115, 232, 0.8);
+            box-shadow: 0 0 10px rgba(26, 115, 232, 0.6);
+        }
+
+        body.light .network-line {
+            background: linear-gradient(90deg, transparent, rgba(26, 115, 232, 0.4), transparent);
+        }
+
+        /* Speed Lines Animation - Recreating the radial burst effect */
+        #speed-lines-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .speed-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, rgba(64, 224, 255, 0.6), transparent);
+            transform-origin: center;
+            animation: speedBurst 4s ease-out infinite;
+        }
+
+        /* Multiple speed lines radiating from center */
+        .speed-line:nth-child(1) {
+            top: 50%;
+            left: 50%;
+            width: 200px;
+            height: 2px;
+            transform: translate(-50%, -50%) rotate(0deg);
+            animation-delay: 0s;
+        }
+
+        .speed-line:nth-child(2) {
+            top: 50%;
+            left: 50%;
+            width: 150px;
+            height: 1px;
+            transform: translate(-50%, -50%) rotate(30deg);
+            animation-delay: 0.2s;
+        }
+
+        .speed-line:nth-child(3) {
+            top: 50%;
+            left: 50%;
+            width: 180px;
+            height: 2px;
+            transform: translate(-50%, -50%) rotate(60deg);
+            animation-delay: 0.4s;
+        }
+
+        .speed-line:nth-child(4) {
+            top: 50%;
+            left: 50%;
+            width: 160px;
+            height: 1px;
+            transform: translate(-50%, -50%) rotate(90deg);
+            animation-delay: 0.6s;
+        }
+
+        .speed-line:nth-child(5) {
+            top: 50%;
+            left: 50%;
+            width: 190px;
+            height: 2px;
+            transform: translate(-50%, -50%) rotate(120deg);
+            animation-delay: 0.8s;
+        }
+
+        .speed-line:nth-child(6) {
+            top: 50%;
+            left: 50%;
+            width: 170px;
+            height: 1px;
+            transform: translate(-50%, -50%) rotate(150deg);
+            animation-delay: 1s;
+        }
+
+        .speed-line:nth-child(7) {
+            top: 50%;
+            left: 50%;
+            width: 200px;
+            height: 2px;
+            transform: translate(-50%, -50%) rotate(180deg);
+            animation-delay: 1.2s;
+        }
+
+        .speed-line:nth-child(8) {
+            top: 50%;
+            left: 50%;
+            width: 140px;
+            height: 1px;
+            transform: translate(-50%, -50%) rotate(210deg);
+            animation-delay: 1.4s;
+        }
+
+        .speed-line:nth-child(9) {
+            top: 50%;
+            left: 50%;
+            width: 180px;
+            height: 2px;
+            transform: translate(-50%, -50%) rotate(240deg);
+            animation-delay: 1.6s;
+        }
+
+        .speed-line:nth-child(10) {
+            top: 50%;
+            left: 50%;
+            width: 160px;
+            height: 1px;
+            transform: translate(-50%, -50%) rotate(270deg);
+            animation-delay: 1.8s;
+        }
+
+        .speed-line:nth-child(11) {
+            top: 50%;
+            left: 50%;
+            width: 190px;
+            height: 2px;
+            transform: translate(-50%, -50%) rotate(300deg);
+            animation-delay: 2s;
+        }
+
+        .speed-line:nth-child(12) {
+            top: 50%;
+            left: 50%;
+            width: 150px;
+            height: 1px;
+            transform: translate(-50%, -50%) rotate(330deg);
+            animation-delay: 2.2s;
+        }
+
+        @keyframes speedBurst {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) rotate(var(--rotation, 0deg)) scale(0.5);
+            }
+
+            20% {
+                opacity: 1;
+                transform: translate(-50%, -50%) rotate(var(--rotation, 0deg)) scale(1);
+            }
+
+            80% {
+                opacity: 1;
+                transform: translate(-50%, -50%) rotate(var(--rotation, 0deg)) scale(1.5);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) rotate(var(--rotation, 0deg)) scale(2);
+            }
+        }
+
+        /* Enhanced Particle System for Speed Effect */
+        .speed-particle {
+            position: fixed;
+            width: 2px;
+            height: 20px;
+            background: linear-gradient(90deg, transparent, rgba(64, 224, 255, 0.6), transparent);
+            animation: speedParticle 3s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes speedParticle {
+            0% {
+                left: -50px;
+                opacity: 0;
+                transform: rotate(-15deg);
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                left: 100vw;
+                opacity: 0;
+                transform: rotate(-15deg);
+            }
+        }
+
+        /* 3D Animated Developer Car */
+        #dev-car-container {
+            position: fixed;
+            top: 50%;
+            left: 20%;
+            transform: translateY(-50%);
+            z-index: 500;
+            pointer-events: none;
+            opacity: 0;
+            animation: carEnter 2s ease-out 1s forwards;
+        }
+
+        @keyframes carEnter {
+            0% {
+                opacity: 0;
+                transform: translateY(-50%) translateX(-100px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(-50%) translateX(0);
+            }
+        }
+
+        .dev-car {
+            width: 120px;
+            height: 60px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: carFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes carFloat {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotateY(0deg);
+            }
+
+            25% {
+                transform: translateY(-3px) rotateY(2deg);
+            }
+
+            50% {
+                transform: translateY(0px) rotateY(0deg);
+            }
+
+            75% {
+                transform: translateY(-2px) rotateY(-2deg);
+            }
+        }
+
+        /* Car Body */
+        .car-body {
+            width: 100%;
+            height: 35px;
+            background: linear-gradient(135deg, #4a90e2, #357abd);
+            border-radius: 15px 15px 8px 8px;
+            position: relative;
+            box-shadow:
+                0 4px 8px rgba(0, 0, 0, 0.3),
+                inset 0 2px 4px rgba(255, 255, 255, 0.2);
+            transform-style: preserve-3d;
+        }
+
+        /* Car Roof with Code Screen */
+        .car-roof {
+            width: 70%;
+            height: 20px;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            border-radius: 10px 10px 0 0;
+            position: absolute;
+            top: -18px;
+            left: 15%;
+            box-shadow:
+                0 2px 4px rgba(0, 0, 0, 0.4),
+                inset 0 1px 2px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Code Screen on Roof */
+        .code-screen {
+            width: 90%;
+            height: 14px;
+            background: #1a1a1a;
+            border-radius: 2px;
+            position: absolute;
+            top: 3px;
+            left: 5%;
+            padding: 2px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .code-line {
+            width: 100%;
+            height: 2px;
+            background: #00ff41;
+            margin: 1px 0;
+            border-radius: 1px;
+            animation: codeTyping 3s ease-in-out infinite;
+            opacity: 0.8;
+        }
+
+        .code-line:nth-child(1) {
+            width: 80%;
+            animation-delay: 0s;
+        }
+
+        .code-line:nth-child(2) {
+            width: 60%;
+            animation-delay: 0.5s;
+        }
+
+        .code-line:nth-child(3) {
+            width: 90%;
+            animation-delay: 1s;
+        }
+
+        @keyframes codeTyping {
+
+            0%,
+            50% {
+                width: 0%;
+                opacity: 0;
+            }
+
+            70% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.8;
+            }
+        }
+
+        /* Car Windshield */
+        .car-windshield {
+            width: 50%;
+            height: 25px;
+            background: linear-gradient(135deg, rgba(135, 206, 235, 0.6), rgba(173, 216, 230, 0.4));
+            border-radius: 8px 8px 0 0;
+            position: absolute;
+            top: -15px;
+            left: 25%;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(2px);
+        }
+
+        /* Car Side Details */
+        .car-side {
+            width: 15px;
+            height: 25px;
+            background: linear-gradient(90deg, #357abd, #4a90e2);
+            position: absolute;
+            right: -8px;
+            top: 5px;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 2px 0 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Car Wheels */
+        .car-wheels {
+            position: absolute;
+            bottom: -15px;
+            width: 100%;
+        }
+
+        .wheel {
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, #2c3e50 30%, #34495e 70%);
+            border-radius: 50%;
+            position: absolute;
+            border: 2px solid #1a252f;
+            animation: wheelSpin 2s linear infinite;
+        }
+
+        .wheel-front {
+            left: 15px;
+        }
+
+        .wheel-rear {
+            right: 15px;
+        }
+
+        .wheel-inner {
+            width: 8px;
+            height: 8px;
+            background: #e74c3c;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 4px rgba(231, 76, 60, 0.6);
+        }
+
+        @keyframes wheelSpin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Exhaust Smoke */
+        .exhaust-smoke {
+            position: absolute;
+            right: -25px;
+            top: 20px;
+            width: 30px;
+            height: 20px;
+        }
+
+        .smoke-particle {
+            width: 4px;
+            height: 4px;
+            background: rgba(200, 200, 200, 0.6);
+            border-radius: 50%;
+            position: absolute;
+            animation: smokeFloat 3s ease-out infinite;
+        }
+
+        .smoke-particle:nth-child(1) {
+            left: 0;
+            animation-delay: 0s;
+        }
+
+        .smoke-particle:nth-child(2) {
+            left: 8px;
+            animation-delay: 0.5s;
+        }
+
+        .smoke-particle:nth-child(3) {
+            left: 16px;
+            animation-delay: 1s;
+        }
+
+        @keyframes smokeFloat {
+            0% {
+                opacity: 0.8;
+                transform: translateY(0) scale(0.5);
+            }
+
+            50% {
+                opacity: 0.4;
+                transform: translateY(-15px) scale(1);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-30px) scale(1.5);
+            }
+        }
+
+        /* 3D Floating Shapes Container */
+        #floating-shapes-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        .floating-shape {
+            position: absolute;
+            transform-style: preserve-3d;
+            animation: floatMove 8s ease-in-out infinite;
+        }
+
+        @keyframes floatMove {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+            }
+
+            25% {
+                transform: translateY(-20px) rotateX(15deg) rotateY(90deg);
+            }
+
+            50% {
+                transform: translateY(-10px) rotateX(0deg) rotateY(180deg);
+            }
+
+            75% {
+                transform: translateY(-15px) rotateX(-15deg) rotateY(270deg);
+            }
+        }
+
+        /* 3D Cube */
+        .cube-3d {
+            width: 40px;
+            height: 40px;
+            animation-duration: 12s;
+        }
+
+        .cube-face {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            opacity: 0.8;
+        }
+
+        .cube-face.front {
+            transform: rotateY(0deg) translateZ(20px);
+        }
+
+        .cube-face.back {
+            transform: rotateY(180deg) translateZ(20px);
+        }
+
+        .cube-face.right {
+            transform: rotateY(90deg) translateZ(20px);
+        }
+
+        .cube-face.left {
+            transform: rotateY(-90deg) translateZ(20px);
+        }
+
+        .cube-face.top {
+            transform: rotateX(90deg) translateZ(20px);
+        }
+
+        .cube-face.bottom {
+            transform: rotateX(-90deg) translateZ(20px);
+        }
+
+        /* 3D Pyramid */
+        .pyramid-3d {
+            width: 50px;
+            height: 50px;
+            animation-duration: 10s;
+            animation-delay: 1s;
+        }
+
+        .pyramid-face {
+            position: absolute;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            opacity: 0.7;
+        }
+
+        .pyramid-face.base {
+            width: 50px;
+            height: 50px;
+            transform: rotateX(-90deg) translateZ(0px);
+        }
+
+        .pyramid-face.side1 {
+            width: 50px;
+            height: 43px;
+            transform: rotateY(0deg) rotateX(45deg) translateZ(25px);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        .pyramid-face.side2 {
+            width: 50px;
+            height: 43px;
+            transform: rotateY(90deg) rotateX(45deg) translateZ(25px);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        .pyramid-face.side3 {
+            width: 50px;
+            height: 43px;
+            transform: rotateY(180deg) rotateX(45deg) translateZ(25px);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        .pyramid-face.side4 {
+            width: 50px;
+            height: 43px;
+            transform: rotateY(270deg) rotateX(45deg) translateZ(25px);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        /* 3D Sphere with Rings */
+        .sphere-3d {
+            width: 60px;
+            height: 60px;
+            animation-duration: 15s;
+            animation-delay: 2s;
+        }
+
+        .sphere-inner {
+            width: 30px;
+            height: 30px;
+            background: radial-gradient(circle, #4facfe, #00f2fe);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px rgba(79, 172, 254, 0.6);
+        }
+
+        .sphere-ring {
+            position: absolute;
+            border: 2px solid rgba(79, 172, 254, 0.4);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .sphere-ring.ring1 {
+            width: 40px;
+            height: 40px;
+            animation: ringRotate1 4s linear infinite;
+        }
+
+        .sphere-ring.ring2 {
+            width: 50px;
+            height: 50px;
+            animation: ringRotate2 6s linear infinite reverse;
+        }
+
+        .sphere-ring.ring3 {
+            width: 60px;
+            height: 60px;
+            animation: ringRotate3 8s linear infinite;
+        }
+
+        @keyframes ringRotate1 {
+            0% {
+                transform: translate(-50%, -50%) rotateX(0deg) rotateY(0deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotateX(360deg) rotateY(360deg);
+            }
+        }
+
+        @keyframes ringRotate2 {
+            0% {
+                transform: translate(-50%, -50%) rotateX(0deg) rotateZ(0deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotateX(360deg) rotateZ(360deg);
+            }
+        }
+
+        @keyframes ringRotate3 {
+            0% {
+                transform: translate(-50%, -50%) rotateY(0deg) rotateZ(0deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotateY(360deg) rotateZ(360deg);
+            }
+        }
+
+        /* 3D Hexagon */
+        .hexagon-3d {
+            width: 45px;
+            height: 45px;
+            animation-duration: 14s;
+            animation-delay: 0.5s;
+        }
+
+        .hexagon-face {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #a8edea, #fed6e3);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            position: absolute;
+            opacity: 0.8;
+        }
+
+        .hexagon-side {
+            width: 20px;
+            height: 45px;
+            background: linear-gradient(135deg, #a8edea, #fed6e3);
+            position: absolute;
+            opacity: 0.6;
+        }
+
+        .hexagon-side.side1 {
+            transform: rotateY(0deg) translateZ(22px);
+        }
+
+        .hexagon-side.side2 {
+            transform: rotateY(60deg) translateZ(22px);
+        }
+
+        .hexagon-side.side3 {
+            transform: rotateY(120deg) translateZ(22px);
+        }
+
+        .hexagon-side.side4 {
+            transform: rotateY(180deg) translateZ(22px);
+        }
+
+        .hexagon-side.side5 {
+            transform: rotateY(240deg) translateZ(22px);
+        }
+
+        .hexagon-side.side6 {
+            transform: rotateY(300deg) translateZ(22px);
+        }
+
+        /* Animated Particles System */
+        #particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, #fff, #8ab4f8);
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: particleFloat 20s linear infinite;
+        }
+
+        .particle-1 {
+            top: 10%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .particle-2 {
+            top: 20%;
+            left: 85%;
+            animation-delay: 2s;
+        }
+
+        .particle-3 {
+            top: 70%;
+            left: 10%;
+            animation-delay: 4s;
+        }
+
+        .particle-4 {
+            top: 80%;
+            left: 90%;
+            animation-delay: 6s;
+        }
+
+        .particle-5 {
+            top: 30%;
+            left: 70%;
+            animation-delay: 8s;
+        }
+
+        .particle-6 {
+            top: 60%;
+            left: 30%;
+            animation-delay: 10s;
+        }
+
+        .particle-7 {
+            top: 40%;
+            left: 50%;
+            animation-delay: 12s;
+        }
+
+        .particle-8 {
+            top: 90%;
+            left: 60%;
+            animation-delay: 14s;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(0px) scale(0.5);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.7;
+            }
+
+            90% {
+                opacity: 0.7;
+            }
+
+            100% {
+                transform: translateY(-100vh) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* 3D Rotating Code Blocks */
+        #code-blocks-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 200;
+        }
+
+        .code-block-3d {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            transform-style: preserve-3d;
+            animation: codeBlockRotate 20s linear infinite;
+        }
+
+        @keyframes codeBlockRotate {
+            0% {
+                transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            }
+
+            100% {
+                transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+            }
+        }
+
+        .code-block-face {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: rgba(26, 27, 38, 0.9);
+            border: 1px solid #8ab4f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+        }
+
+        .code-block-face.front {
+            transform: rotateY(0deg) translateZ(40px);
+        }
+
+        .code-block-face.back {
+            transform: rotateY(180deg) translateZ(40px);
+        }
+
+        .code-block-face.right {
+            transform: rotateY(90deg) translateZ(40px);
+        }
+
+        .code-block-face.left {
+            transform: rotateY(-90deg) translateZ(40px);
+        }
+
+        .code-block-face.top {
+            transform: rotateX(90deg) translateZ(40px);
+        }
+
+        .code-block-face.bottom {
+            transform: rotateX(-90deg) translateZ(40px);
+        }
+
+        .code-text {
+            color: #8ab4f8;
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 10px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Interactive 3D Orbs */
+        #interactive-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 150;
+        }
+
+        .orb-3d {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            transform-style: preserve-3d;
+            animation: orbFloat 6s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            animation-delay: 2s;
+        }
+
+        .orb-3 {
+            animation-delay: 4s;
+        }
+
+        @keyframes orbFloat {
+
+            0%,
+            100% {
+                transform: translateY(0px) scale(1);
+            }
+
+            50% {
+                transform: translateY(-30px) scale(1.1);
+            }
+        }
+
+        .orb-core {
+            width: 30px;
+            height: 30px;
+            background: radial-gradient(circle, #ff6b6b, #ee5a24);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 30px rgba(255, 107, 107, 0.8);
+            animation: orbPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes orbPulse {
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+        }
+
+        .orb-glow {
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle, rgba(255, 107, 107, 0.3), transparent);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: orbGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes orbGlow {
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.3;
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 0.1;
+            }
+        }
+
+        .orb-pulse {
+            width: 40px;
+            height: 40px;
+            border: 2px solid rgba(255, 107, 107, 0.6);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: orbRingPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes orbRingPulse {
+            0% {
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(2);
+                opacity: 0;
+            }
+        }
+
+        /* Light theme adjustments for animated elements */
+        body.light .dev-car .car-body {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+        }
+
+        body.light .dev-car .car-roof {
+            background: linear-gradient(135deg, #34495e, #2c3e50);
+        }
+
+        body.light .smoke-particle {
+            background: rgba(100, 100, 100, 0.4);
+        }
+
+        body.light .cube-face {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+        }
+
+        body.light .pyramid-face {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+
+        body.light .sphere-inner {
+            background: radial-gradient(circle, #2ecc71, #27ae60);
+            box-shadow: 0 0 20px rgba(46, 204, 113, 0.6);
+        }
+
+        body.light .sphere-ring {
+            border-color: rgba(46, 204, 113, 0.4);
+        }
+
+        body.light .code-block-face {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: #1a73e8;
+        }
+
+        body.light .code-text {
+            color: #1a73e8;
+        }
+
+        body.light .particle {
+            background: radial-gradient(circle, #1a73e8, #4285f4);
+        }
+
+        body.light .speed-particle {
+            background: linear-gradient(90deg, transparent, rgba(30, 144, 255, 0.4), transparent);
+        }
+
+        /* Floating Network Shapes */
+        #network-shapes-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+            overflow: hidden;
+        }
+
+        .network-shape {
+            position: absolute;
+            opacity: 0.4;
+            animation: shapeFloat 25s ease-in-out infinite;
+        }
+
+        .network-circle {
+            width: 60px;
+            height: 60px;
+            border: 2px solid rgba(138, 180, 248, 0.3);
+            border-radius: 50%;
+            background: rgba(138, 180, 248, 0.1);
+        }
+
+        .network-triangle {
+            width: 0;
+            height: 0;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-bottom: 43px solid rgba(138, 180, 248, 0.2);
+        }
+
+        .network-square {
+            width: 40px;
+            height: 40px;
+            background: rgba(138, 180, 248, 0.15);
+            border: 1px solid rgba(138, 180, 248, 0.3);
+            transform: rotate(45deg);
+        }
+
+        .network-hexagon {
+            width: 50px;
+            height: 50px;
+            background: rgba(138, 180, 248, 0.1);
+            border: 2px solid rgba(138, 180, 248, 0.3);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+
+        @keyframes shapeFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.4;
+            }
+
+            90% {
+                opacity: 0.4;
+            }
+
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        body.light .network-circle {
+            border-color: rgba(26, 115, 232, 0.3);
+            background: rgba(26, 115, 232, 0.1);
+        }
+
+        body.light .network-triangle {
+            border-bottom-color: rgba(26, 115, 232, 0.2);
+        }
+
+        body.light .network-square {
+            background: rgba(26, 115, 232, 0.15);
+            border-color: rgba(26, 115, 232, 0.3);
+        }
+
+        body.light .network-hexagon {
+            background: rgba(26, 115, 232, 0.1);
+            border-color: rgba(26, 115, 232, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            #keyflicks-overlay {
+                flex-direction: column;
+                align-items: center;
+                bottom: 40px;
+            }
+
+            .keyflicks-card {
+                width: 90%;
+                max-width: 300px;
+            }
+
+            #google-logo {
+                font-size: 60px;
+                margin-bottom: 20px;
+            }
+
+            #google-search-container {
+                top: 30%;
+                padding: 0 16px;
+            }
+
+            .google-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .google-btn {
+                width: 200px;
+            }
+
+            #dev-car-container {
+                left: 10%;
+                top: 30%;
+                transform: translateY(-50%) scale(0.8);
+            }
+        }
+
+        @media (max-width: 480px) {
+            #dev-car-container {
+                display: none;
+                /* Hide car on very small screens */
+            }
+
+            /* Hide some 3D elements on mobile for performance */
+            #floating-shapes-container,
+            #code-blocks-container {
+                display: none;
+            }
+
+            .particle {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Floating Network Shapes -->
+    <div id="network-shapes-container"></div>
+
+    <!-- Speed Lines Container - Radial Burst Effect -->
+    <div id="speed-lines-container">
+        <div class="speed-line"></div>
+        <div class="speed-line"></div>
+        <div class="speed-line"></div>
+        <div class="speed-line"></div>
+        <div class="speed-line"></div>
+        <div class="speed-line"></div>
+        <div class="speed-line"></div>
+        <div class="speed-line"></div>
+        <div class="speed-line"></div>
+        <div class="speed-line"></div>
+        <div class="speed-line"></div>
+        <div class="speed-line"></div>
+    </div>
+
+    <!-- Speed Particles for Motion Effect -->
+    <div class="speed-particle" style="top: 30%; animation-delay: 0s;"></div>
+    <div class="speed-particle" style="top: 45%; animation-delay: 1s;"></div>
+    <div class="speed-particle" style="top: 60%; animation-delay: 2s;"></div>
+    <div class="speed-particle" style="top: 35%; animation-delay: 0.5s;"></div>
+    <div class="speed-particle" style="top: 55%; animation-delay: 1.5s;"></div>
+
+    <!-- 3D Animated Developer Car -->
+    <div id="dev-car-container">
+        <div class="dev-car">
+            <div class="car-body">
+                <div class="car-roof">
+                    <div class="code-screen">
+                        <div class="code-line"></div>
+                        <div class="code-line"></div>
+                        <div class="code-line"></div>
+                    </div>
+                </div>
+                <div class="car-windshield"></div>
+                <div class="car-side"></div>
+            </div>
+            <div class="car-wheels">
+                <div class="wheel wheel-front">
+                    <div class="wheel-inner"></div>
+                </div>
+                <div class="wheel wheel-rear">
+                    <div class="wheel-inner"></div>
+                </div>
+            </div>
+            <div class="exhaust-smoke">
+                <div class="smoke-particle"></div>
+                <div class="smoke-particle"></div>
+                <div class="smoke-particle"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3D Animated UI Components -->
+    <div id="floating-shapes-container">
+        <!-- Floating Cube -->
+        <div class="floating-shape cube-3d" style="top: 20%; right: 15%;">
+            <div class="cube-face front"></div>
+            <div class="cube-face back"></div>
+            <div class="cube-face right"></div>
+            <div class="cube-face left"></div>
+            <div class="cube-face top"></div>
+            <div class="cube-face bottom"></div>
+        </div>
+
+        <!-- Floating Pyramid -->
+        <div class="floating-shape pyramid-3d" style="top: 60%; right: 25%;">
+            <div class="pyramid-face base"></div>
+            <div class="pyramid-face side1"></div>
+            <div class="pyramid-face side2"></div>
+            <div class="pyramid-face side3"></div>
+            <div class="pyramid-face side4"></div>
+        </div>
+
+        <!-- Floating Sphere -->
+        <div class="floating-shape sphere-3d" style="top: 40%; left: 10%;">
+            <div class="sphere-inner"></div>
+            <div class="sphere-ring ring1"></div>
+            <div class="sphere-ring ring2"></div>
+            <div class="sphere-ring ring3"></div>
+        </div>
+
+        <!-- Floating Hexagon -->
+        <div class="floating-shape hexagon-3d" style="top: 25%; left: 25%;">
+            <div class="hexagon-face"></div>
+            <div class="hexagon-side side1"></div>
+            <div class="hexagon-side side2"></div>
+            <div class="hexagon-side side3"></div>
+            <div class="hexagon-side side4"></div>
+            <div class="hexagon-side side5"></div>
+            <div class="hexagon-side side6"></div>
+        </div>
+    </div>
+
+    <!-- Animated Particles System -->
+    <div id="particles-container">
+        <div class="particle particle-1"></div>
+        <div class="particle particle-2"></div>
+        <div class="particle particle-3"></div>
+        <div class="particle particle-4"></div>
+        <div class="particle particle-5"></div>
+        <div class="particle particle-6"></div>
+        <div class="particle particle-7"></div>
+        <div class="particle particle-8"></div>
+    </div>
+
+    <!-- 3D Rotating Code Blocks -->
+    <div id="code-blocks-container">
+        <div class="code-block-3d" style="top: 15%; right: 35%;">
+            <div class="code-block-face front">
+                <div class="code-text">function()</div>
+            </div>
+            <div class="code-block-face back">
+                <div class="code-text">{ return }</div>
+            </div>
+            <div class="code-block-face right">
+                <div class="code-text">const x</div>
+            </div>
+            <div class="code-block-face left">
+                <div class="code-text">let y</div>
+            </div>
+            <div class="code-block-face top">
+                <div class="code-text">async</div>
+            </div>
+            <div class="code-block-face bottom">
+                <div class="code-text">await</div>
+            </div>
+        </div>
+
+        <div class="code-block-3d" style="top: 70%; left: 35%;">
+            <div class="code-block-face front">
+                <div class="code-text">class</div>
+            </div>
+            <div class="code-block-face back">
+                <div class="code-text">extends</div>
+            </div>
+            <div class="code-block-face right">
+                <div class="code-text">import</div>
+            </div>
+            <div class="code-block-face left">
+                <div class="code-text">export</div>
+            </div>
+            <div class="code-block-face top">
+                <div class="code-text">module</div>
+            </div>
+            <div class="code-block-face bottom">
+                <div class="code-text">require</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive 3D Orbs -->
+    <div id="interactive-orbs">
+        <div class="orb-3d orb-1" style="top: 35%; right: 8%;">
+            <div class="orb-core"></div>
+            <div class="orb-glow"></div>
+            <div class="orb-pulse"></div>
+        </div>
+
+        <div class="orb-3d orb-2" style="top: 55%; left: 5%;">
+            <div class="orb-core"></div>
+            <div class="orb-glow"></div>
+            <div class="orb-pulse"></div>
+        </div>
+
+        <div class="orb-3d orb-3" style="top: 80%; right: 20%;">
+            <div class="orb-core"></div>
+            <div class="orb-glow"></div>
+            <div class="orb-pulse"></div>
+        </div>
+    </div>
+
+    <!-- Google-style Search Interface -->
+    <div id="google-search-container">
+        <div id="google-logo">
+            <span class="google-letter-g1">G</span><span class="google-letter-o1">o</span><span
+                class="google-letter-o2">o</span><span class="google-letter-g2">g</span><span
+                class="google-letter-l">l</span><span class="google-letter-e">e</span>
+        </div>
+        <div id="google-search-wrapper">
+            <div class="google-search-icon">
+                <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+                    </path>
+                </svg>
+            </div>
+            <input type="text" id="google-search-box" placeholder="Search Google or type a URL" autocomplete="off" />
+            <div class="google-voice-icon" title="Search by voice">
+                <svg focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#4285f4"
+                        d="m12 15c1.66 0 3-1.31 3-2.97v-7.02c0-1.66-1.34-3.01-3-3.01s-3 1.34-3 3.01v7.02c0 1.66 1.34 2.97 3 2.97z">
+                    </path>
+                    <path fill="#34a853" d="m11 18.08h2v3.92h-2z"></path>
+                    <path fill="#fbbc05"
+                        d="m7.05 16.87c-1.27-1.33-2.05-2.83-2.05-4.87h2c0 1.45 0.56 2.42 1.47 3.38v0.32l-1.15 1.18z">
+                    </path>
+                    <path fill="#ea4335"
+                        d="m16.95 16.87-1.15-1.18v-0.32c0.91-0.96 1.47-1.93 1.47-3.38h2c0 2.04-0.78 3.54-2.05 4.87z">
+                    </path>
+                </svg>
+            </div>
+            <div class="google-camera-icon" title="Search by image">
+                <svg focusable="false" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg">
+                    <rect fill="none" height="192" width="192"></rect>
+                    <g>
+                        <circle fill="#34a853" cx="144.07" cy="144" r="16"></circle>
+                        <circle fill="#4285f4" cx="96.07" cy="104" r="24"></circle>
+                        <path fill="#ea4335"
+                            d="M24,135.2c0,18.11,14.69,32.8,32.8,32.8H96v-16l-40.1-0.1c-8.8,0-15.9-8.19-15.9-17.9v-18H24V135.2z">
+                        </path>
+                        <path fill="#fbbc05"
+                            d="M168,72.8c0-18.11-14.69-32.8-32.8-32.8H116v16l19.9,0.1c8.8,0,15.9,8.19,15.9,17.9v18h16V72.8z">
+                        </path>
+                        <path fill="#4285f4" d="M112,24v16h16c8.8,0,16,7.2,16,16v16h16V56c0-17.67-14.33-32-32-32H112z">
+                        </path>
+                        <path fill="#34a853"
+                            d="M64,168c-8.8,0-16-7.2-16-16v-16H32v16c0,17.67,14.33,32,32,32h16v-16H64z"></path>
+                    </g>
+                </svg>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Animated Network Shapes -->
+    <div id="network-container"></div>
+
+    <!-- KeyFlicks overlay - positioned over Chrome's default new tab -->
+    <div id="keyflicks-overlay">
+        <!-- Enhanced Shortcut Card -->
+        <div id="shortcut-card" class="keyflicks-card">
+            <div class="card-header">
+                <span class="card-icon">💡</span>
+                <h3 class="card-title">OS-Specific Shortcut Tip</h3>
+                <div class="card-actions">
+                    <button class="action-btn" id="copy-shortcut" title="Copy shortcut"
+                        aria-label="Copy shortcut to clipboard">📋</button>
+                    <button class="action-btn" id="next-shortcut" title="Next tip"
+                        aria-label="Show next shortcut tip">⏭️</button>
+                </div>
+            </div>
+            <div id="shortcut-keys" class="shortcut-keys">Ctrl + C</div>
+            <div id="shortcut-description" class="shortcut-description">Copy selected text or item</div>
+            <div id="shortcut-category" class="shortcut-category">Basic Editing</div>
+        </div>
+
+        <!-- Enhanced Quote Card -->
+        <div id="quote-card" class="keyflicks-card">
+            <div class="card-header">
+                <span class="card-icon">☁️</span>
+                <h3 class="card-title">Programming Quote</h3>
+                <div class="card-actions">
+                    <button class="action-btn" id="copy-quote" title="Copy quote"
+                        aria-label="Copy quote to clipboard">📋</button>
+                    <button class="action-btn" id="next-quote" title="New quote"
+                        aria-label="Get new programming quote">🔄</button>
+                </div>
+            </div>
+            <div id="quote-text" class="quote-text">"The best way to get started is to quit talking and begin doing."
+            </div>
+            <div id="quote-author" class="quote-author">— Walt Disney</div>
+        </div>
+    </div>
+
+    <!-- KeyFlicks Branding -->
+    <div id="keyflicks-branding">KeyFlicks</div>
+
+    <!-- Theme Toggle -->
+    <button id="theme-toggle" aria-label="Toggle between light and dark theme" role="button">
+        <svg id="sun-icon" class="theme-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+            </path>
+        </svg>
+        <svg id="moon-icon" class="theme-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+        </svg>
+    </button>
+
+    <!-- Loading State -->
+    <div id="loading-overlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <div>Loading KeyFlicks...</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer">
+        Created by <a href="https://github.com/vaibhav01-git" target="_blank" rel="noopener noreferrer">Vaibhav
+            Kumar</a> © 2025
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

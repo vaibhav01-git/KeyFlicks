@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "KeyFlicks",
+  "version": "1.0.0",
+  "description": "Keyboard shortcuts and motivational quotes for your new tab",
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://programming-quotesapi.vercel.app/*",
+    "https://api.quotable.io/*",
+    "https://zenquotes.io/*",
+    "https://quotes.rest/*"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; connect-src 'self' https://programming-quotesapi.vercel.app https://api.quotable.io https://zenquotes.io https://quotes.rest;"
+  }
+}
