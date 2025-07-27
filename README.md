@@ -25,7 +25,11 @@
 
 ## 🖼️ Screenshots
 
-*Add screenshots here*
+### Dark Theme
+![KeyFlicks Dark Theme](screenshots/keyflicks-dark-theme.png)
+
+### Light Theme  
+![KeyFlicks Light Theme](screenshots/keyflicks-light-theme.png)
 
 ## 🛠️ Tech Stack
 
