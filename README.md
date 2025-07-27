@@ -23,14 +23,6 @@
 - 🌙 **Theme System** - Auto/Light/Dark modes
 - 📱 **Responsive** - Works on all screen sizes
 
-## 🖼️ Screenshots
-
-### Dark Theme
-![KeyFlicks Dark Theme](screenshots/keyflicks-dark-theme.png)
-
-### Light Theme  
-![KeyFlicks Light Theme](screenshots/keyflicks-light-theme.png)
-
 ## 🛠️ Tech Stack
 
 - Vanilla JavaScript (ES6+)
