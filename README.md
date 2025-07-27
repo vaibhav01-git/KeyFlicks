@@ -2,13 +2,13 @@
 
 > Transform your new tab experience with keyboard shortcuts, programming quotes, and Google search
 
-[![Chrome Extension](https://img.shields.io/badge/Chrome-Extension-blue?logo=google-chrome)](https://github.com/yourusername/keyflicks-chrome-extension)
+[![Chrome Extension](https://img.shields.io/badge/Chrome-Extension-blue?logo=google-chrome)](https://github.com/vaibhav01-git/KeyFlicks)
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![GitHub Pages](https://img.shields.io/badge/Demo-Live-brightgreen)](https://yourusername.github.io/keyflicks-chrome-extension/)
+[![GitHub Pages](https://img.shields.io/badge/Demo-Live-brightgreen)](https://vaibhav01-git.github.io/KeyFlicks/)
 
 ## 🚀 Quick Install
 
-1. **[Download Extension](https://github.com/yourusername/keyflicks-chrome-extension/archive/refs/heads/main.zip)** (ZIP file)
+1. **[Download Extension](https://github.com/vaibhav01-git/KeyFlicks/archive/refs/heads/main.zip)** (ZIP file)
 2. Extract to folder
 3. Chrome → `chrome://extensions/` → Enable "Developer mode"
 4. Click "Load unpacked" → Select folder
@@ -40,4 +40,4 @@ MIT © [Vaibhav Kumar](https://github.com/vaibhav01-git)
 
 ---
 
-**[🌐 Live Demo](https://yourusername.github.io/keyflicks-chrome-extension/) | [📥 Download](https://github.com/yourusername/keyflicks-chrome-extension/archive/refs/heads/main.zip) | [🐛 Issues](https://github.com/yourusername/keyflicks-chrome-extension/issues)**
+**[🌐 Live Demo](https://vaibhav01-git.github.io/KeyFlicks/) | [📥 Download](https://github.com/vaibhav01-git/KeyFlicks/archive/refs/heads/main.zip) | [🐛 Issues](https://github.com/vaibhav01-git/KeyFlicks/issues)**
