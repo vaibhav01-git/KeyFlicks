@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create KeyFlicks Favicon</title>
+</head>
+<body>
+    <h1>Creating KeyFlicks Favicon...</h1>
+    <canvas id="favicon" width="32" height="32" style="border:1px solid #ccc;"></canvas>
+    <br>
+    <button onclick="downloadFavicon()">Download favicon.ico</button>
+    <button onclick="downloadIcon16()">Download icon16.png</button>
+    <button onclick="downloadIcon48()">Download icon48.png</button>
+    <button onclick="downloadIcon128()">Download icon128.png</button>
+    
+    <script>
+        // Create the favicon
+        const canvas = document.getElementById('favicon');
+        const ctx = canvas.getContext('2d');
+        
+        // Black background
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(0, 0, 32, 32);
+        
+        // White K
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 20px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('K', 16, 16);
+        
+        function downloadFavicon() {
+            const link = document.createElement('a');
+            link.download = 'favicon.ico';
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+        
+        function downloadIcon16() {
+            const canvas16 = document.createElement('canvas');
+            canvas16.width = 16;
+            canvas16.height = 16;
+            const ctx16 = canvas16.getContext('2d');
+            
+            ctx16.fillStyle = '#000000';
+            ctx16.fillRect(0, 0, 16, 16);
+            ctx16.fillStyle = '#ffffff';
+            ctx16.font = 'bold 10px Arial';
+            ctx16.textAlign = 'center';
+            ctx16.textBaseline = 'middle';
+            ctx16.fillText('K', 8, 8);
+            
+            const link = document.createElement('a');
+            link.download = 'icon16.png';
+            link.href = canvas16.toDataURL();
+            link.click();
+        }
+        
+        function downloadIcon48() {
+            const canvas48 = document.createElement('canvas');
+            canvas48.width = 48;
+            canvas48.height = 48;
+            const ctx48 = canvas48.getContext('2d');
+            
+            ctx48.fillStyle = '#000000';
+            ctx48.fillRect(0, 0, 48, 48);
+            ctx48.fillStyle = '#ffffff';
+            ctx48.font = 'bold 30px Arial';
+            ctx48.textAlign = 'center';
+            ctx48.textBaseline = 'middle';
+            ctx48.fillText('K', 24, 24);
+            
+            const link = document.createElement('a');
+            link.download = 'icon48.png';
+            link.href = canvas48.toDataURL();
+            link.click();
+        }
+        
+        function downloadIcon128() {
+            const canvas128 = document.createElement('canvas');
+            canvas128.width = 128;
+            canvas128.height = 128;
+            const ctx128 = canvas128.getContext('2d');
+            
+            ctx128.fillStyle = '#000000';
+            ctx128.fillRect(0, 0, 128, 128);
+            ctx128.fillStyle = '#ffffff';
+            ctx128.font = 'bold 80px Arial';
+            ctx128.textAlign = 'center';
+            ctx128.textBaseline = 'middle';
+            ctx128.fillText('K', 64, 64);
+            
+            const link = document.createElement('a');
+            link.download = 'icon128.png';
+            link.href = canvas128.toDataURL();
+            link.click();
+        }
+    </script>
+</body>
+</html> 

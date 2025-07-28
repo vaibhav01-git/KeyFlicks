@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Auto KeyFlicks Favicon Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .preview {
+            text-align: center;
+            margin: 20px 0;
+        }
+        button {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+        button:hover {
+            background: #2563eb;
+        }
+        .success {
+            background: #10b981;
+        }
+        .success:hover {
+            background: #059669;
+        }
+        .status {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+        .status.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #10b981;
+        }
+        .status.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #ef4444;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Auto KeyFlicks Favicon Generator</h1>
+        <p>This will automatically create all favicon files with a white "K" on black background.</p>
+        
+        <div class="preview">
+            <h3>Preview:</h3>
+            <canvas id="preview" width="64" height="64" style="border:2px solid #ccc; border-radius: 5px;"></canvas>
+            <p><strong>White "K" on Black Background</strong></p>
+        </div>
+        
+        <div style="text-align: center;">
+            <button onclick="generateAllFavicons()">🎯 Generate All Favicon Files</button>
+        </div>
+        
+        <div id="status" class="status"></div>
+        
+        <div style="margin-top: 30px;">
+            <h3>📋 What This Creates:</h3>
+            <ul>
+                <li><strong>favicon.ico</strong> - Main favicon (32x32)</li>
+                <li><strong>icons/icon16.png</strong> - Small icon (16x16)</li>
+                <li><strong>icons/icon48.png</strong> - Medium icon (48x48)</li>
+                <li><strong>icons/icon128.png</strong> - Large icon (128x128)</li>
+            </ul>
+            
+            <h3>🔄 After Generation:</h3>
+            <ol>
+                <li>All files will be downloaded automatically</li>
+                <li>Replace the placeholder files in your extension</li>
+                <li>Reload your extension in Chrome</li>
+                <li>Open a new tab to see the white "K" favicon!</li>
+            </ol>
+        </div>
+    </div>
+    
+    <script>
+        // Show preview
+        const previewCanvas = document.getElementById('preview');
+        const previewCtx = previewCanvas.getContext('2d');
+        
+        // Black background
+        previewCtx.fillStyle = '#000000';
+        previewCtx.fillRect(0, 0, 64, 64);
+        
+        // White K
+        previewCtx.fillStyle = '#ffffff';
+        previewCtx.font = 'bold 40px Arial';
+        previewCtx.textAlign = 'center';
+        previewCtx.textBaseline = 'middle';
+        previewCtx.fillText('K', 32, 32);
+        
+        function showStatus(message, isSuccess = true) {
+            const status = document.getElementById('status');
+            status.textContent = message;
+            status.className = `status ${isSuccess ? 'success' : 'error'}`;
+            status.style.display = 'block';
+        }
+        
+        function generateAllFavicons() {
+            showStatus('🔄 Generating favicon files...', true);
+            
+            // Generate favicon.ico (32x32)
+            setTimeout(() => {
+                generateFavicon(32, 'favicon.ico');
+                showStatus('✅ Generated favicon.ico', true);
+            }, 100);
+            
+            // Generate icon16.png
+            setTimeout(() => {
+                generateFavicon(16, 'icon16.png');
+                showStatus('✅ Generated icon16.png', true);
+            }, 200);
+            
+            // Generate icon48.png
+            setTimeout(() => {
+                generateFavicon(48, 'icon48.png');
+                showStatus('✅ Generated icon48.png', true);
+            }, 300);
+            
+            // Generate icon128.png
+            setTimeout(() => {
+                generateFavicon(128, 'icon128.png');
+                showStatus('🎉 All favicon files generated! Check your downloads folder.', true);
+            }, 400);
+        }
+        
+        function generateFavicon(size, filename) {
+            const canvas = document.createElement('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext('2d');
+            
+            // Black background
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(0, 0, size, size);
+            
+            // White K
+            ctx.fillStyle = '#ffffff';
+            ctx.font = `bold ${Math.floor(size * 0.625)}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('K', size/2, size/2);
+            
+            // Download
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+    </script>
+</body>
+</html> 

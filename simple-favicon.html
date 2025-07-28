@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple KeyFlicks Favicon</title>
+    <style>
+        body { font-family: Arial; text-align: center; padding: 20px; }
+        button { 
+            background: #3b82f6; 
+            color: white; 
+            border: none; 
+            padding: 15px 30px; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-size: 16px; 
+            margin: 10px;
+        }
+        .preview { margin: 20px; }
+    </style>
+</head>
+<body>
+    <h1>KeyFlicks Favicon Generator</h1>
+    <p>Click the button below to download all favicon files</p>
+    
+    <div class="preview">
+        <canvas id="preview" width="64" height="64" style="border:2px solid #ccc;"></canvas>
+        <p>Preview: White "K" on Black Background</p>
+    </div>
+    
+    <button onclick="downloadAll()">Download All Favicon Files</button>
+    
+    <script>
+        // Show preview
+        const canvas = document.getElementById('preview');
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#000000';
+        ctx.fillRect(0, 0, 64, 64);
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 40px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('K', 32, 32);
+        
+        function createIcon(size) {
+            const canvas = document.createElement('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext('2d');
+            
+            // Black background
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(0, 0, size, size);
+            
+            // White K
+            ctx.fillStyle = '#ffffff';
+            ctx.font = `bold ${Math.floor(size * 0.625)}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('K', size/2, size/2);
+            
+            return canvas.toDataURL();
+        }
+        
+        function downloadAll() {
+            // Download favicon.ico (32x32)
+            const link1 = document.createElement('a');
+            link1.download = 'favicon.ico';
+            link1.href = createIcon(32);
+            link1.click();
+            
+            // Download icon16.png
+            const link2 = document.createElement('a');
+            link2.download = 'icon16.png';
+            link2.href = createIcon(16);
+            link2.click();
+            
+            // Download icon48.png
+            const link3 = document.createElement('a');
+            link3.download = 'icon48.png';
+            link3.href = createIcon(48);
+            link3.click();
+            
+            // Download icon128.png
+            const link4 = document.createElement('a');
+            link4.download = 'icon128.png';
+            link4.href = createIcon(128);
+            link4.click();
+            
+            alert('All favicon files downloaded! Now move them to your extension folder.');
+        }
+    </script>
+</body>
+</html> 

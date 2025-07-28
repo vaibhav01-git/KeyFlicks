@@ -354,41 +354,25 @@ class QuoteManager {
     }
 
     async fetchFromAPI() {
-        // Try content script first (avoids CORS issues)
+        // Try background script first (avoids CORS issues)
         try {
-            console.log('Attempting to fetch quote via content script...');
+            console.log('Attempting to fetch quote via background script...');
             
-            // Set up a promise to handle the response
-            const quotePromise = new Promise((resolve, reject) => {
-                const timeout = setTimeout(() => {
-                    reject(new Error('Content script timeout'));
-                }, 10000);
+            // Check if chrome.runtime is available
+            if (typeof chrome !== 'undefined' && chrome.runtime && chrome.runtime.sendMessage) {
+                const response = await chrome.runtime.sendMessage({ type: 'fetchQuote' });
                 
-                const messageHandler = (event) => {
-                    if (event.data.type === 'QUOTE_RESPONSE') {
-                        clearTimeout(timeout);
-                        window.removeEventListener('message', messageHandler);
-                        
-                        if (event.data.success) {
-                            resolve(event.data.quote);
-                        } else {
-                            reject(new Error(event.data.error));
-                        }
-                    }
-                };
-                
-                window.addEventListener('message', messageHandler);
-                
-                // Send the request to the content script
-                window.postMessage({ type: 'FETCH_QUOTE' }, '*');
-            });
-            
-            const quote = await quotePromise;
-            console.log('Successfully fetched quote via content script:', quote);
-            return quote;
-            
+                if (response && response.success && response.quote) {
+                    console.log('Successfully fetched quote via background script:', response.quote);
+                    return response.quote;
+                } else {
+                    console.warn('Background script returned error:', response?.error);
+                }
+            } else {
+                console.warn('Chrome runtime not available');
+            }
         } catch (error) {
-            console.warn('Content script failed, trying background script...', error);
+            console.warn('Background script not available, trying direct API calls...', error);
         }
 
         // Try background script as fallback
