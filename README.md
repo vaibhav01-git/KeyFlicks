@@ -93,7 +93,7 @@ MIT © [Vaibhav Kumar](https://github.com/vaibhav01-git)
 
 ---
 
-**[🌐 Live Demo](https://vaibhav01-git.github.io/KeyFlicks/) | [🎮 Hacker Demo](enhanced-hacker-demo.html) | [📥 Download](https://github.com/vaibhav01-git/KeyFlicks/archive/refs/heads/main.zip) | [🐛 Issues](https://github.com/vaibhav01-git/KeyFlicks/issues)**
+**[🌐 Live Demo](https://vaibhav01-git.github.io/KeyFlicks/) | [📥 Download](https://github.com/vaibhav01-git/KeyFlicks/archive/refs/heads/main.zip) | [🐛 Issues](https://github.com/vaibhav01-git/KeyFlicks/issues)**
 
 ## 🎨 Enhanced Hacker Theme Features
 
