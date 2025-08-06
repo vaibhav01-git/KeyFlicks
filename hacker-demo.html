@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyFlicks Hacker Theme</title>
+    <link rel="stylesheet" href="styles/hacker-theme.css">
+</head>
+<body>
+    <!-- Floating 3D Hacker Objects -->
+    <div class="floating-elements">
+        <div class="float cube"></div>
+        <div class="float ring"></div>
+        <div class="float triangle"></div>
+        <div class="float pulse-dot"></div>
+    </div>
+
+    <!-- Google Logo -->
+    <div class="logo">Google</div>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="text" placeholder="Search Google or type a URL">
+    </div>
+
+    <!-- KeyFlicks Cards -->
+    <div class="cards">
+        <!-- Shortcut Card -->
+        <div class="card">
+            <div class="card-title">💡 OS-Specific Shortcut Tip</div>
+            <div class="shortcut">
+                <span class="key">Alt</span> + <span class="key">←</span>
+            </div>
+            <div class="desc">Go back</div>
+        </div>
+
+        <!-- Quote Card -->
+        <div class="card">
+            <div class="card-title">💻 Programming Quote</div>
+            <blockquote>
+                Programs are meant to be read by humans and only incidentally for machines to execute.
+                <br><span class="author">— Donald Knuth</span>
+            </blockquote>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">Created by Vaibhav Kumar © 2025</div>
+
+    <!-- Theme Toggle Script -->
+    <script>
+        // Simple theme toggle for demo
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 't' && (e.ctrlKey || e.metaKey)) {
+                e.preventDefault();
+                document.body.classList.toggle('light');
+            }
+        });
+
+        // Add click to toggle theme
+        document.addEventListener('click', function(e) {
+            if (e.shiftKey) {
+                document.body.classList.toggle('light');
+            }
+        });
+    </script>
+</body>
+</html>

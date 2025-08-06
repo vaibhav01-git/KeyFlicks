@@ -5,31 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Tab - KeyFlicks</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23000000'/><text x='16' y='19' font-family='Arial, sans-serif' font-size='16' font-weight='bold' fill='%23ffffff' text-anchor='middle' dominant-baseline='middle'>K</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23000000'/><text x='16' y='22' font-family='Arial' font-size='20' font-weight='bold' fill='%23ffffff' text-anchor='middle'>K</text></svg>">
+    <link rel="stylesheet" href="styles/hacker-theme.css">
     <style>
-        /* Minimal styles to overlay on Chrome's default new tab */
-        body {
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+        
+        /* Enhanced Hacker-Inspired Dark Theme */
+        * {
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Monaco, 'Cascadia Code', monospace;
             position: relative;
             overflow-x: hidden;
-            background:
-                radial-gradient(ellipse at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 40% 80%, rgba(120, 119, 255, 0.2) 0%, transparent 50%),
-                radial-gradient(ellipse at 0% 0%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
-                radial-gradient(ellipse at 100% 100%, rgba(120, 200, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(200, 200, 255, 0.1) 0%, transparent 50%),
-                linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #0a0a0a 100%);
             min-height: 100vh;
+            background: linear-gradient(145deg, #0d1117, #161b22);
+            color: #eaeaea;
         }
 
         /* Light theme */
         body.light {
             background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 50%, #cbd5e0 100%);
+            color: #202124;
         }
 
         /* Google-style Search Interface */
@@ -48,10 +48,10 @@
         #google-logo {
             font-size: 90px;
             font-weight: 400;
-            color: #e8eaed;
+            color: #f0f6fc;
             margin-bottom: 30px;
             font-family: 'Product Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 2px 8px rgba(121, 192, 255, 0.3), 0 0 20px rgba(121, 192, 255, 0.1);
             letter-spacing: -5px;
         }
 
@@ -174,21 +174,36 @@
 
         .google-btn {
             background: rgba(48, 49, 52, 0.8);
-            border: 1px solid rgba(48, 49, 52, 0.8);
-            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
             color: #e8eaed;
             font-size: 14px;
-            padding: 10px 20px;
+            font-weight: 500;
+            padding: 12px 24px;
             cursor: pointer;
-            transition: all 0.2s ease;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .google-btn:hover {
             background: rgba(48, 49, 52, 0.9);
-            border-color: rgba(95, 99, 104, 0.8);
-            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+            border-color: rgba(138, 180, 248, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        body.light .google-btn {
+            background: rgba(248, 249, 250, 0.9);
+            border-color: rgba(0, 0, 0, 0.1);
+            color: #3c4043;
+        }
+
+        body.light .google-btn:hover {
+            background: rgba(248, 249, 250, 1);
+            border-color: rgba(26, 115, 232, 0.3);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
         }
 
         /* KeyFlicks overlay container */
@@ -538,7 +553,7 @@
             color: rgba(255, 255, 255, 0.6);
             text-align: center;
             z-index: 1000;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Monaco, 'Cascadia Code', monospace, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         #footer a {
@@ -1795,6 +1810,326 @@
             border-color: rgba(26, 115, 232, 0.3);
         }
 
+        /* Enhanced Floating Hacker Objects */
+        .floating-elements .float {
+            position: absolute;
+            animation: floatAnim 8s infinite ease-in-out alternate;
+            opacity: 0.3;
+        }
+
+        .cube {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #0af, #00d4ff);
+            top: 20%;
+            left: 10%;
+            transform: rotate(45deg);
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 175, 255, 0.4);
+        }
+
+        .ring {
+            width: 80px;
+            height: 80px;
+            border: 3px solid #f85149;
+            top: 30%;
+            right: 15%;
+            border-radius: 50%;
+            box-shadow: 0 0 25px rgba(248, 81, 73, 0.5);
+        }
+
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-bottom: 50px solid #d29922;
+            bottom: 10%;
+            left: 20%;
+            filter: drop-shadow(0 0 15px rgba(210, 153, 34, 0.6));
+        }
+
+        .pulse-dot {
+            width: 15px;
+            height: 15px;
+            background: #79c0ff;
+            top: 70%;
+            right: 30%;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            box-shadow: 0 0 20px rgba(121, 192, 255, 0.8);
+        }
+
+        @keyframes floatAnim {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+        }
+
+        /* Enhanced Google Logo with Hacker Styling */
+        #google-logo {
+            font-size: 90px;
+            font-weight: 700;
+            color: #f0f6fc;
+            margin-bottom: 30px;
+            font-family: 'JetBrains Mono', monospace;
+            text-shadow: 
+                0 0 10px rgba(121, 192, 255, 0.5),
+                0 0 20px rgba(121, 192, 255, 0.3),
+                0 0 30px rgba(121, 192, 255, 0.2);
+            letter-spacing: 2px;
+            animation: logoGlow 3s ease-in-out infinite alternate;
+            position: relative;
+            cursor: default;
+        }
+
+        @keyframes logoGlow {
+            0% {
+                text-shadow: 
+                    0 0 10px rgba(121, 192, 255, 0.5),
+                    0 0 20px rgba(121, 192, 255, 0.3),
+                    0 0 30px rgba(121, 192, 255, 0.2);
+            }
+            100% {
+                text-shadow: 
+                    0 0 15px rgba(121, 192, 255, 0.8),
+                    0 0 25px rgba(121, 192, 255, 0.5),
+                    0 0 35px rgba(121, 192, 255, 0.3);
+            }
+        }
+
+        /* Enhanced Search Box with Glassmorphism */
+        #google-search-box {
+            width: 100%;
+            height: 44px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            background: rgba(13, 17, 23, 0.8);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 0 16px 0 45px;
+            font-size: 16px;
+            color: #e8eaed;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: 
+                0 4px 15px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            box-sizing: border-box;
+        }
+
+        #google-search-box:focus {
+            background: rgba(13, 17, 23, 0.9);
+            border-color: rgba(138, 180, 248, 0.8);
+            box-shadow: 
+                0 4px 20px rgba(138, 180, 248, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        /* Enhanced KeyFlicks Cards with Better Glassmorphism */
+        .keyflicks-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(121, 192, 255, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+            width: 300px;
+            min-height: 120px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.4),
+                0 0 20px rgba(121, 192, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            color: #e8eaed;
+            pointer-events: auto;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUp 0.6s ease-out forwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .keyflicks-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(121, 192, 255, 0.1) 0%, 
+                rgba(121, 192, 255, 0.05) 50%, 
+                rgba(121, 192, 255, 0.02) 100%
+            );
+            pointer-events: none;
+        }
+
+        .keyflicks-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.5),
+                0 0 30px rgba(121, 192, 255, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border-color: rgba(121, 192, 255, 0.4);
+        }
+
+        /* Enhanced Shortcut Keys Styling */
+        .shortcut-keys {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 16px;
+            font-weight: 600;
+            color: #79c0ff;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(121, 192, 255, 0.3);
+        }
+
+        /* Enhanced Action Buttons with Neon Effect */
+        .action-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(121, 192, 255, 0.3);
+            border-radius: 6px;
+            padding: 6px 8px;
+            color: #79c0ff;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(121, 192, 255, 0.2),
+                transparent
+            );
+            transition: left 0.3s;
+        }
+
+        .action-btn:hover::before {
+            left: 100%;
+        }
+
+        .action-btn:hover {
+            background: rgba(121, 192, 255, 0.2);
+            color: #ffffff;
+            transform: scale(1.1);
+            box-shadow: 
+                0 0 10px rgba(121, 192, 255, 0.5),
+                0 4px 12px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 0 5px rgba(121, 192, 255, 0.8);
+        }
+
+        body.light .action-btn {
+            border-color: rgba(26, 115, 232, 0.3);
+            color: #1a73e8;
+        }
+
+        body.light .action-btn:hover {
+            background: rgba(26, 115, 232, 0.2);
+            box-shadow: 
+                0 0 10px rgba(26, 115, 232, 0.3),
+                0 4px 12px rgba(0, 0, 0, 0.1);
+            text-shadow: 0 0 5px rgba(26, 115, 232, 0.5);
+        }
+
+        /* Light Theme Adjustments */
+        body.light #google-logo {
+            color: #1a1a1a;
+            text-shadow: 
+                0 0 10px rgba(26, 115, 232, 0.3),
+                0 0 20px rgba(26, 115, 232, 0.2);
+        }
+
+        body.light #google-search-box {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: rgba(0, 0, 0, 0.1);
+            color: #202124;
+        }
+
+        body.light #google-search-box:focus {
+            border-color: rgba(26, 115, 232, 0.8);
+            box-shadow: 
+                0 4px 20px rgba(26, 115, 232, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        body.light .keyflicks-card {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(26, 115, 232, 0.2);
+            color: #202124;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                0 0 20px rgba(26, 115, 232, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        }
+
+        body.light .keyflicks-card::before {
+            background: linear-gradient(135deg, 
+                rgba(26, 115, 232, 0.1) 0%, 
+                rgba(26, 115, 232, 0.05) 50%, 
+                rgba(26, 115, 232, 0.02) 100%
+            );
+        }
+
+        body.light .keyflicks-card:hover {
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.15),
+                0 0 30px rgba(26, 115, 232, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            border-color: rgba(26, 115, 232, 0.4);
+        }
+
+        body.light .shortcut-keys {
+            color: #1a73e8;
+            text-shadow: 0 0 10px rgba(26, 115, 232, 0.2);
+        }
+
+        body.light .cube {
+            background: linear-gradient(45deg, #1a73e8, #4285f4);
+            box-shadow: 0 0 20px rgba(26, 115, 232, 0.4);
+        }
+
+        body.light .ring {
+            border-color: #ea4335;
+            box-shadow: 0 0 25px rgba(234, 67, 53, 0.4);
+        }
+
+        body.light .triangle {
+            border-bottom-color: #fbbc05;
+            filter: drop-shadow(0 0 15px rgba(251, 188, 5, 0.5));
+        }
+
+        body.light .pulse-dot {
+            background: #34a853;
+            box-shadow: 0 0 20px rgba(52, 168, 83, 0.6);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             #keyflicks-overlay {
@@ -1855,6 +2190,14 @@
 </head>
 
 <body>
+    <!-- Enhanced Floating 3D Hacker Objects -->
+    <div class="floating-elements">
+        <div class="float cube"></div>
+        <div class="float ring"></div>
+        <div class="float triangle"></div>
+        <div class="float pulse-dot"></div>
+    </div>
+
     <!-- Floating Network Shapes -->
     <div id="network-shapes-container"></div>
 
@@ -2032,11 +2375,7 @@
 
     <!-- Google-style Search Interface -->
     <div id="google-search-container">
-        <div id="google-logo">
-            <span class="google-letter-g1">G</span><span class="google-letter-o1">o</span><span
-                class="google-letter-o2">o</span><span class="google-letter-g2">g</span><span
-                class="google-letter-l">l</span><span class="google-letter-e">e</span>
-        </div>
+        <div id="google-logo">Google</div>
         <div id="google-search-wrapper">
             <div class="google-search-icon">
                 <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -2046,40 +2385,8 @@
                 </svg>
             </div>
             <input type="text" id="google-search-box" placeholder="Search Google or type a URL" autocomplete="off" />
-            <div class="google-voice-icon" title="Search by voice">
-                <svg focusable="false" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="#4285f4"
-                        d="m12 15c1.66 0 3-1.31 3-2.97v-7.02c0-1.66-1.34-3.01-3-3.01s-3 1.34-3 3.01v7.02c0 1.66 1.34 2.97 3 2.97z">
-                    </path>
-                    <path fill="#34a853" d="m11 18.08h2v3.92h-2z"></path>
-                    <path fill="#fbbc05"
-                        d="m7.05 16.87c-1.27-1.33-2.05-2.83-2.05-4.87h2c0 1.45 0.56 2.42 1.47 3.38v0.32l-1.15 1.18z">
-                    </path>
-                    <path fill="#ea4335"
-                        d="m16.95 16.87-1.15-1.18v-0.32c0.91-0.96 1.47-1.93 1.47-3.38h2c0 2.04-0.78 3.54-2.05 4.87z">
-                    </path>
-                </svg>
-            </div>
-            <div class="google-camera-icon" title="Search by image">
-                <svg focusable="false" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg">
-                    <rect fill="none" height="192" width="192"></rect>
-                    <g>
-                        <circle fill="#34a853" cx="144.07" cy="144" r="16"></circle>
-                        <circle fill="#4285f4" cx="96.07" cy="104" r="24"></circle>
-                        <path fill="#ea4335"
-                            d="M24,135.2c0,18.11,14.69,32.8,32.8,32.8H96v-16l-40.1-0.1c-8.8,0-15.9-8.19-15.9-17.9v-18H24V135.2z">
-                        </path>
-                        <path fill="#fbbc05"
-                            d="M168,72.8c0-18.11-14.69-32.8-32.8-32.8H116v16l19.9,0.1c8.8,0,15.9,8.19,15.9,17.9v18h16V72.8z">
-                        </path>
-                        <path fill="#4285f4" d="M112,24v16h16c8.8,0,16,7.2,16,16v16h16V56c0-17.67-14.33-32-32-32H112z">
-                        </path>
-                        <path fill="#34a853"
-                            d="M64,168c-8.8,0-16-7.2-16-16v-16H32v16c0,17.67,14.33,32,32,32h16v-16H64z"></path>
-                    </g>
-                </svg>
-            </div>
         </div>
+        
 
     </div>
 
@@ -2154,6 +2461,104 @@
     </div>
 
     <script src="js/script.js"></script>
+    <script>
+        // Enhanced Hacker Theme Effects
+        class HackerEffects {
+            constructor() {
+                this.digitalRainContainer = document.getElementById('digital-rain');
+                this.init();
+            }
+            
+            init() {
+                this.createDigitalRain();
+                this.addScanLines();
+            }
+            
+            createDigitalRain() {
+                if (!this.digitalRainContainer) return;
+                
+                const characters = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+                const columns = Math.floor(window.innerWidth / 20);
+                
+                for (let i = 0; i < columns; i++) {
+                    if (Math.random() > 0.7) { // Only 30% chance to create a column
+                        this.createRainColumn(i * 20, characters);
+                    }
+                }
+                
+                // Recreate rain periodically
+                setInterval(() => {
+                    if (Math.random() > 0.8) {
+                        const randomColumn = Math.floor(Math.random() * columns);
+                        this.createRainColumn(randomColumn * 20, characters);
+                    }
+                }, 2000);
+            }
+            
+            createRainColumn(leftPosition, characters) {
+                const column = document.createElement('div');
+                column.className = 'rain-column';
+                column.style.left = leftPosition + 'px';
+                column.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                column.style.animationDelay = Math.random() * 2 + 's';
+                
+                let text = '';
+                const length = Math.floor(Math.random() * 10) + 5;
+                for (let i = 0; i < length; i++) {
+                    text += characters[Math.floor(Math.random() * characters.length)] + '<br>';
+                }
+                column.innerHTML = text;
+                
+                this.digitalRainContainer.appendChild(column);
+                
+                // Remove after animation
+                setTimeout(() => {
+                    if (column.parentNode) {
+                        column.parentNode.removeChild(column);
+                    }
+                }, 12000);
+            }
+            
+            addScanLines() {
+                const containers = document.querySelectorAll('.keyflicks-card');
+                containers.forEach(container => {
+                    container.classList.add('scan-lines');
+                });
+            }
+        }
+        
+        // Initialize hacker effects when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new HackerEffects();
+        });
+        
+        // Add glitch effect to logo occasionally
+        setInterval(() => {
+            const logo = document.getElementById('google-logo');
+            if (logo && Math.random() > 0.9) {
+                logo.classList.add('glitch');
+                logo.setAttribute('data-text', logo.textContent);
+                setTimeout(() => {
+                    logo.classList.remove('glitch');
+                }, 500);
+            }
+        }, 10000);
+        
+        // Add holographic effect to cards on hover
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.keyflicks-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.classList.add('holographic');
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.classList.remove('holographic');
+                });
+            });
+        });
+        
+
+    </script>
 </body>
 
 </html>

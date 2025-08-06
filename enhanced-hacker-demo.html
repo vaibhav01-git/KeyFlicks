@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyFlicks - Enhanced Hacker Theme Demo</title>
+    <link rel="stylesheet" href="styles/enhanced-hacker-theme.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background: linear-gradient(145deg, #0d1117, #161b22);
+            color: #eaeaea;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .demo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .demo-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .demo-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #79c0ff, #00d4ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .demo-subtitle {
+            font-size: 1.2rem;
+            color: #9aa0a6;
+            margin-bottom: 2rem;
+        }
+        
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .demo-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(121, 192, 255, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.4),
+                0 0 20px rgba(121, 192, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .demo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.5),
+                0 0 30px rgba(121, 192, 255, 0.3);
+            border-color: rgba(121, 192, 255, 0.4);
+        }
+        
+        .demo-card h3 {
+            color: #79c0ff;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .demo-card p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .demo-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        
+        .demo-terminal {
+            margin: 2rem 0;
+        }
+        
+        .floating-demo-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .demo-float {
+            position: absolute;
+            animation: demoFloat 8s ease-in-out infinite alternate;
+            opacity: 0.3;
+        }
+        
+        .demo-cube {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #0af, #00d4ff);
+            top: 20%;
+            left: 10%;
+            transform: rotate(45deg);
+            border-radius: 6px;
+            box-shadow: 0 0 20px rgba(0, 175, 255, 0.4);
+        }
+        
+        .demo-ring {
+            width: 60px;
+            height: 60px;
+            border: 2px solid #f85149;
+            top: 30%;
+            right: 15%;
+            border-radius: 50%;
+            box-shadow: 0 0 25px rgba(248, 81, 73, 0.5);
+        }
+        
+        .demo-triangle {
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 35px solid #d29922;
+            bottom: 20%;
+            left: 20%;
+            filter: drop-shadow(0 0 15px rgba(210, 153, 34, 0.6));
+        }
+        
+        @keyframes demoFloat {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-20px) rotate(10deg); }
+        }
+        
+        .theme-toggle-demo {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+        
+        body.light {
+            background: linear-gradient(135deg, #f0f4f8, #e2e8f0);
+            color: #202124;
+        }
+        
+        body.light .demo-card {
+            background: rgba(255, 255, 255, 0.8);
+            border-color: rgba(26, 115, 232, 0.2);
+            color: #202124;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                0 0 20px rgba(26, 115, 232, 0.1);
+        }
+        
+        body.light .demo-card h3 {
+            color: #1a73e8;
+        }
+        
+        @media (max-width: 768px) {
+            .demo-title {
+                font-size: 2rem;
+            }
+            
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .floating-demo-elements {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cyberpunk Grid Background -->
+    <div class="cyber-grid"></div>
+    
+    <!-- Digital Rain Effect -->
+    <div class="digital-rain" id="digital-rain"></div>
+    
+    <!-- Floating Demo Elements -->
+    <div class="floating-demo-elements">
+        <div class="demo-float demo-cube"></div>
+        <div class="demo-float demo-ring"></div>
+        <div class="demo-float demo-triangle"></div>
+    </div>
+    
+    <!-- Theme Toggle -->
+    <button class="neon-button theme-toggle-demo" onclick="toggleTheme()">
+        🌓 Toggle Theme
+    </button>
+    
+    <div class="demo-container">
+        <div class="demo-header">
+            <h1 class="demo-title glow-text">KeyFlicks Enhanced</h1>
+            <p class="demo-subtitle">Hacker-Inspired Chrome Extension with Cyberpunk Aesthetics</p>
+        </div>
+        
+        <div class="demo-grid">
+            <div class="demo-card scan-lines">
+                <h3>🔍 Enhanced Search</h3>
+                <p>Google search with glassmorphic design, neon glows, and smooth animations. Features enhanced visual feedback and cyberpunk styling.</p>
+            </div>
+            
+            <div class="demo-card scan-lines">
+                <h3>⌨️ Smart Shortcuts</h3>
+                <p>OS-specific keyboard shortcuts with glowing displays, terminal-style presentation, and interactive hover effects.</p>
+            </div>
+            
+            <div class="demo-card scan-lines">
+                <h3>💡 Programming Quotes</h3>
+                <p>Inspirational coding quotes with holographic effects, smooth transitions, and developer-focused content.</p>
+            </div>
+            
+            <div class="demo-card scan-lines">
+                <h3>🎨 Cyberpunk Design</h3>
+                <p>Matrix-style digital rain, floating 3D objects, scan lines, glitch effects, and immersive hacker aesthetics.</p>
+            </div>
+            
+            <div class="demo-card scan-lines">
+                <h3>🌙 Dual Themes</h3>
+                <p>Dark hacker theme and clean light theme, both with glassmorphism effects and smooth theme transitions.</p>
+            </div>
+            
+            <div class="demo-card scan-lines">
+                <h3>📱 Responsive</h3>
+                <p>Optimized for all screen sizes with performance considerations for mobile devices and reduced motion preferences.</p>
+            </div>
+        </div>
+        
+        <div class="demo-buttons">
+            <button class="neon-button" onclick="showGlitchEffect()">
+                ⚡ Glitch Effect
+            </button>
+            <button class="neon-button" onclick="addHolographic()">
+                🌈 Holographic
+            </button>
+            <button class="neon-button" onclick="createRainBurst()">
+                🌧️ Rain Burst
+            </button>
+        </div>
+        
+        <div class="demo-terminal">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-dot red"></div>
+                    <div class="terminal-dot yellow"></div>
+                    <div class="terminal-dot green"></div>
+                    <span style="margin-left: 10px; font-size: 12px; color: #9aa0a6;">KeyFlicks Terminal</span>
+                </div>
+                <div>
+                    <span class="terminal-prompt">$</span>
+                    <span>npm install keyflicks-extension</span>
+                </div>
+                <div style="margin-top: 8px;">
+                    <span class="terminal-prompt">$</span>
+                    <span>keyflicks --theme=hacker --effects=enhanced</span>
+                </div>
+                <div style="margin-top: 8px;">
+                    <span style="color: #34a853;">✓</span>
+                    <span style="margin-left: 8px;">KeyFlicks loaded successfully!</span>
+                    <span class="terminal-cursor"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Theme toggle functionality
+        function toggleTheme() {
+            document.body.classList.toggle('light');
+        }
+        
+        // Demo effects
+        function showGlitchEffect() {
+            const title = document.querySelector('.demo-title');
+            title.classList.add('glitch');
+            title.setAttribute('data-text', title.textContent);
+            setTimeout(() => {
+                title.classList.remove('glitch');
+            }, 1000);
+        }
+        
+        function addHolographic() {
+            const cards = document.querySelectorAll('.demo-card');
+            cards.forEach(card => {
+                card.classList.add('holographic');
+                setTimeout(() => {
+                    card.classList.remove('holographic');
+                }, 3000);
+            });
+        }
+        
+        function createRainBurst() {
+            const rainContainer = document.getElementById('digital-rain');
+            const characters = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+            
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const column = document.createElement('div');
+                    column.className = 'rain-column';
+                    column.style.left = Math.random() * window.innerWidth + 'px';
+                    column.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                    
+                    let text = '';
+                    const length = Math.floor(Math.random() * 8) + 3;
+                    for (let j = 0; j < length; j++) {
+                        text += characters[Math.floor(Math.random() * characters.length)] + '<br>';
+                    }
+                    column.innerHTML = text;
+                    
+                    rainContainer.appendChild(column);
+                    
+                    setTimeout(() => {
+                        if (column.parentNode) {
+                            column.parentNode.removeChild(column);
+                        }
+                    }, 5000);
+                }, i * 100);
+            }
+        }
+        
+        // Initialize digital rain
+        function initDigitalRain() {
+            const rainContainer = document.getElementById('digital-rain');
+            const characters = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+            const columns = Math.floor(window.innerWidth / 20);
+            
+            for (let i = 0; i < columns; i++) {
+                if (Math.random() > 0.8) {
+                    setTimeout(() => {
+                        const column = document.createElement('div');
+                        column.className = 'rain-column';
+                        column.style.left = i * 20 + 'px';
+                        column.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                        column.style.animationDelay = Math.random() * 2 + 's';
+                        
+                        let text = '';
+                        const length = Math.floor(Math.random() * 10) + 5;
+                        for (let j = 0; j < length; j++) {
+                            text += characters[Math.floor(Math.random() * characters.length)] + '<br>';
+                        }
+                        column.innerHTML = text;
+                        
+                        rainContainer.appendChild(column);
+                        
+                        setTimeout(() => {
+                            if (column.parentNode) {
+                                column.parentNode.removeChild(column);
+                            }
+                        }, 12000);
+                    }, Math.random() * 5000);
+                }
+            }
+            
+            // Continue creating rain
+            setTimeout(initDigitalRain, 8000);
+        }
+        
+        // Start effects when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            initDigitalRain();
+            
+            // Add periodic glitch to title
+            setInterval(() => {
+                if (Math.random() > 0.95) {
+                    showGlitchEffect();
+                }
+            }, 10000);
+        });
+    </script>
+</body>
+</html>
