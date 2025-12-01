@@ -10,8 +10,10 @@
 
 ### Chrome/Edge Browser
 
-1. Download or clone this repository
-2. Extract the files to a folder on your computer
+[![Download ZIP](https://img.shields.io/badge/Download-ZIP-blue?style=for-the-badge&logo=github)](https://github.com/vaibhav01-git/KeyFlicks/archive/refs/heads/main.zip)
+
+1. **[Download the extension](https://github.com/vaibhav01-git/KeyFlicks/archive/refs/heads/main.zip)** or clone this repository
+2. Extract the ZIP file to a folder on your computer
 3. Open Chrome and navigate to `chrome://extensions/`
 4. Enable **Developer mode** (toggle in top-right corner)
 5. Click **Load unpacked** and select the extension folder
@@ -86,16 +88,10 @@ KeyFlicks/
 
 MIT © [Vaibhav Kumar](https://github.com/vaibhav01-git)
 
-## 🤝 Contributing
-
-Contributions are welcome! Feel free to:
-- Report bugs and issues
-- Suggest new features or shortcuts
-- Submit pull requests
-- Improve documentation
-
 ## 📧 Contact
 
 **Designed & Developed by Vaibhav Kumar**
+
+email : vkvaibhavkumar22@gmail.com
 
 For questions or feedback, please open an issue on GitHub.
