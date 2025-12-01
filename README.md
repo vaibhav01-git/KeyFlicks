@@ -36,7 +36,7 @@ KeyFlicks replaces your default new tab page with a feature-rich interface that 
 - ⚡ **Interactive Effects** - Glitch effects, holographic elements, neon button animations
 - 🌙 **Dual Theme System** - Dark hacker theme and clean light theme with glassmorphism
 - 📱 **Responsive & Optimized** - Performance considerations for mobile and reduced motion
-- 🎯 **Developer-Focused** - Built by developers, for developers with authentic hacker aesthetics
+- 🎯 **Developer-Focused** - Built by developer, for developers with authentic hacker aesthetics
 
 ## 🖼️ Screenshots
 
