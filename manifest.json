@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "KeyFlicks",
   "version": "1.0.0",
-  "description": "Keyboard shortcuts and motivational quotes for your new tab",
+  "description": "Replaces your new tab with a beautiful interface featuring keyboard shortcuts and daily motivational quotes. Boost productivity with quick access to shortcuts and stay inspired with programming wisdom.",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
